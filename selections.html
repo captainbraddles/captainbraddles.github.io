@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>SportsMaster 2025</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="leaderboard.html">Leaderboard</a></li>
+					<li><a href="events.html">Events</a></li>
+					<li><a href="selections.html">Selections</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Selections -->
+		<section id="three" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Selections</h2>
+				<p>Here are each SportsMasters selections for 2025 season.</p>
+				<div>
+					<table id="selections">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Adam Willson</th>
+								<th>Andrew Sampson</th>
+								<th>Andrew Simmonds</th>
+								<th>Annette and Gary</th>
+								<th>Brad Warman</th>
+								<th>Caleb Dean</th>
+								<th>Cepsational</th>
+								<th>Dan Loveridge</th>
+								<th>David Hart</th>
+								<th>Gary Dean</th>
+								<th>Hosie</th>
+								<th>Isaac Gartlan</th>
+								<th>Kaes</th>
+								<th>Kye Dean</th>
+								<th>Matthias Bartlett</th>
+								<th>Michael Dean</th>
+								<th>Michael Van Dyk</th>
+								<th>Nathan Quarrell</th>
+								<th>Optical AssAssins</th>
+								<th>Ozan Cakar</th>
+								<th>Paul Dean</th>
+								<th>Richard Kemp</th>
+								<th>Rob Dean</th>
+								<th>Russell Rawlings</th>
+								<th>The Infamous Seagullo</th>
+								<th>Tim Stevenson</th>
+								<th>Trent McGee</th>
+								<th>Trevor Gartlan</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Untitled. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+	<script>
+		new DataTable('#selections', {
+		ajax: 'https://script.google.com/macros/s/AKfycbx2tP6RgghSnZxvOqbJh5auR2fo4uGnr5ITzjh8gLXoBCnzmj-mrVwTSVkn3VcyZKgX/exec',
+		paging: true,
+		order: [],
+		layout: {
+			topStart: 'pageLength',
+			topEnd: 'search',
+			bottomStart: 'info',
+			bottomEnd: 'paging'
+    },
+		columns: [
+			{ data: 'Name' },
+			{ data: 'Adam Willson' },
+			{ data: 'Andrew Sampson' },
+			{ data: 'Andrew Simmonds' },
+			{ data: 'Annette and Gary' },
+			{ data: 'Brad Warman' },
+			{ data: 'Caleb Dean' },
+			{ data: 'Cepsational' },
+			{ data: 'Dan Loveridge' },
+			{ data: 'David Hart' },
+			{ data: 'Gary Dean' },
+			{ data: 'Hosie' },
+			{ data: 'Isaac Gartlan' },
+			{ data: 'Kaes' },
+			{ data: 'Kye Dean' },
+			{ data: 'Matthias Bartlett' },
+			{ data: 'Michael Dean' },
+			{ data: 'Michael Van Dyk' },
+			{ data: 'Nathan Quarrell' },
+			{ data: 'Optical AssAssins' },
+			{ data: 'Ozan Cakar' },
+			{ data: 'Paul Dean' },
+			{ data: 'Richard Kemp' },
+			{ data: 'Rob Dean' },
+			{ data: 'Russell Rawlings' },
+			{ data: 'The Infamous Seagullo' },
+			{ data: 'Tim Stevenson' },
+			{ data: 'Trent McGee' },
+			{ data: 'Trevor Gartlan' }
+		]
+});
+	</script>
+
+</body>
+
+</html>

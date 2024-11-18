@@ -1818,6 +1818,10 @@ input, select, textarea {
 
 /* Button */
 
+.scrolly {
+	margin-top: 2rem;
+}
+
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],

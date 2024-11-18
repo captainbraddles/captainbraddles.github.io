@@ -26,7 +26,7 @@
 		<div class="inner">
 			<nav>
 				<ul>
-					<li><a href="#intro">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="leaderboard.html">Leaderboard</a></li>
 					<li><a href="events.html">Events</a></li>
 					<li><a href="selections.html">Selections</a></li>
@@ -38,17 +38,25 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Intro -->
-		<section id="intro" class="wrapper style1 fullscreen fade-up">
+		<!-- Events -->
+		<section id="two" class="wrapper style3 fade-up">
 			<div class="inner">
-				<h1>SportsMaster 2025</h1>
-				<p>Welcome to SportsMaster 2025. The place for terrible punters.</p>
-				The new season is here and we started with a bang! The Clipsal 500 (it'll always be the Clipsal) has been run and won, with Will Brown getting the chocolates. Six SportsMasters have secured early points, with Trent also securing a joker. 
-				<ul class="actions">
-					<li><a href="leaderboard.html" class="button scrolly">Leaderboard</a></li>
-				</ul>
+				<h2>Events</h2>
+				<p>Events list for SportsMaster 2025</p>
+				<div>
+					<table id="events">
+						<thead>
+							<tr>
+								<th>Event</th>
+								<th>Month</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+
 			</div>
 		</section>
+	</div>
 
 	<!-- Footer -->
 	<footer id="footer" class="wrapper style1-alt">
@@ -67,7 +75,27 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
+	<script>
+		new DataTable('#events', {
+		ajax: 'https://script.google.com/macros/s/AKfycbx5JS7HonW4t2V-aatT81UCHdjZYb3vPpQlevUH5Oi951JyXbbPelJGQZtCC_oLeOhMjQ/exec',
+		paging: false,
+		order: [[2, 1, 'desc']],
+		layout: {
+			topStart: null,
+			bottom: null,
+			bottomStart: null,
+			bottomEnd: null
+    },
+		columns: [
+			{ data: 'Event' },
+			{ data: 'Month' }
+		]
+});
+	</script>
 
 </body>
 

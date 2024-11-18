@@ -26,7 +26,7 @@
 		<div class="inner">
 			<nav>
 				<ul>
-					<li><a href="#intro">Home</a></li>
+					<li><a href="index.html">Home</a></li>
 					<li><a href="leaderboard.html">Leaderboard</a></li>
 					<li><a href="events.html">Events</a></li>
 					<li><a href="selections.html">Selections</a></li>
@@ -38,17 +38,30 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Intro -->
-		<section id="intro" class="wrapper style1 fullscreen fade-up">
-			<div class="inner">
-				<h1>SportsMaster 2025</h1>
-				<p>Welcome to SportsMaster 2025. The place for terrible punters.</p>
-				The new season is here and we started with a bang! The Clipsal 500 (it'll always be the Clipsal) has been run and won, with Will Brown getting the chocolates. Six SportsMasters have secured early points, with Trent also securing a joker. 
-				<ul class="actions">
-					<li><a href="leaderboard.html" class="button scrolly">Leaderboard</a></li>
-				</ul>
-			</div>
+		<!-- Leaderboard -->
+		<section id="one" class="wrapper style2 spotlights">
+			<section>
+				<div class="content">
+					<div class="inner">
+						<h2>Leaderboard</h2>
+						<p>Leaderboard last updated 18/11/2024</p>
+					</div>
+
+					<table id="leaderboard">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Points</th>
+								<th>Correct Selections</th>
+								<th>Jokers Won</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</section>
 		</section>
+	</div>
+		
 
 	<!-- Footer -->
 	<footer id="footer" class="wrapper style1-alt">
@@ -67,7 +80,29 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
+	<script>
+		new DataTable('#leaderboard', {
+		ajax: 'https://script.google.com/macros/s/AKfycbyMeUqeqZrWcsiH1_pk4vgUwUx0nSKw5YkW1fvzz2B_ozJhO_SAee3C-p6wUjQ1pMLu/exec',
+		paging: false,
+		order: [[1, 0, 'desc']],
+		layout: {
+			topStart: null,
+			bottom: null,
+			bottomStart: null,
+			bottomEnd: null
+    },
+		columns: [
+			{ data: 'Name' },
+			{ data: 'Points' },
+			{ data: 'Correct Selections' },
+			{ data: 'Jokers Won' }
+		]
+});
+	</script>
 
 </body>
 
