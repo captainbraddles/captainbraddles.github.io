@@ -1818,10 +1818,6 @@ input, select, textarea {
 
 /* Button */
 
-.scrolly {
-	margin-top: 2rem;
-}
-
 	input[type="submit"],
 	input[type="reset"],
 	input[type="button"],
@@ -3136,6 +3132,19 @@ input, select, textarea {
 		}
 
 /* Table */
+
+	#selections {
+		thead tr th:first-child,
+		tbody tr td:first-child {
+  		width: 10em;
+  		min-width: 10em;
+  		max-width: 10em;
+  		word-break: break-all;
+		text-wrap: normal !important;
+		font-weight: 800;
+		font-size: 14px;
+}
+	}
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;

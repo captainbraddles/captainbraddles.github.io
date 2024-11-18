@@ -47,7 +47,7 @@
 					<table id="selections">
 						<thead>
 							<tr>
-								<th>Name</th>
+								<th>Event</th>
 								<th>Adam Willson</th>
 								<th>Andrew Sampson</th>
 								<th>Andrew Simmonds</th>
@@ -113,11 +113,14 @@
 		paging: true,
 		order: [],
 		layout: {
-			topStart: 'pageLength',
+			topStart: null,
 			topEnd: 'search',
-			bottomStart: 'info',
-			bottomEnd: 'paging'
-    },
+			bottomStart: 'pageLength',
+			bottomEnd: 'paging',
+			bottom2Start: 'info'
+    	},
+		scrollX: true,
+    	scrollY: 700,
 		columns: [
 			{ data: 'Name' },
 			{ data: 'Adam Willson' },
