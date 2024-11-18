@@ -14,7 +14,19 @@
     padding-left: 3rem !important;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 736px) {
+
+    #sidebar {
+        height: 8em;
+        left: 0;
+        line-height: 3.5em;
+        overflow: hidden;
+        padding: 0;
+        text-align: center;
+        top: 0;
+        width: 100%;
+    }
+
     .header-image {
         width: 100%;
     }
