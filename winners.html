@@ -11,7 +11,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/brads.css" />
 	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -39,33 +38,36 @@
 	<!-- Wrapper -->
 	<div id="wrapper">
 
-		<!-- Intro -->
-		<section id="intro" class="wrapper style2 spotlights">
-			<section class="header">
-				<div class="header-image">
-					<img class="gaz-hammy" src="assets/css/images/gaz_hammy.jpg" alt="" />
+		<!-- Selections -->
+		<section id="three" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Winners</h2>
+				<p>Here are the winning selections for the 2025 season.</p>
+				<div>
+					<table id="winners">
+						<thead>
+							<tr>
+								<th>Event</th>
+								<th>Winning Selection</th>
+								<th>Winners</th>
+								<th>Number of Winners</th>
+								<th>Jokers</th>
+								<th>Points</th>
+								<th>Joker Points</th>
+							</tr>
+						</thead>
+					</table>
 				</div>
-				<div class="content">
-					<div class="inner">
-						<h1>SportsMaster 2025</h1>
-						<p>Welcome to SportsMaster 2025. The place for terrible punters.</p>
-						The new season is here and we started with a bang! The Clipsal 500 (it'll always be the Clipsal) has been run and won, with Will Brown getting the chocolates. Six SportsMasters have secured early points, with Trent also securing a joker. 
-						<ul class="actions leaderboard-btn">
-							<li><a href="leaderboard.html" class="button scrolly">Leaderboard</a></li>
-						</ul>
-						<ul class="actions winners-btn">
-							<li><a href="winners.html" class="button scrolly">Winners List</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
+			</div>
 		</section>
+
+	</div>
 
 	<!-- Footer -->
 	<footer id="footer" class="wrapper style1-alt">
 		<div class="inner">
 			<ul class="menu">
-				<li>&copy; SportsMaster2025. All rights reserved.</li>
+				<li>&copy; SportsMaster 2025. All rights reserved.</li>
 			</ul>
 		</div>
 	</footer>
@@ -78,7 +80,35 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
+	<script>
+		new DataTable('#winners', {
+		ajax: 'https://script.google.com/macros/s/AKfycbzV0MVvwOi1WDjAcWQqtvtsAm21jvm3N_Y-ENC3SE1zEPgA6hUY3VLYEDvXMogJS6Nt/exec',
+		paging: true,
+		order: [],
+		layout: {
+			topStart: null,
+			topEnd: 'search',
+			bottomStart: 'pageLength',
+			bottomEnd: 'paging',
+			bottom2Start: 'info'
+    	},
+		scrollX: true,
+    	scrollY: 700,
+		columns: [
+			{ data: 'Event' },
+			{ data: 'Winning Selection' },
+			{ data: 'Winners' },
+			{ data: 'Number of winners' },
+			{ data: 'Jokers' },
+			{ data: 'Points' },
+			{ data: 'Joker points' }
+		]
+});
+	</script>
 
 </body>
 
