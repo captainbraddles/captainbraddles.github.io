@@ -104,57 +104,72 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
 
 	<script>
 		new DataTable('#selections', {
-		ajax: 'https://script.google.com/macros/s/AKfycbx2tP6RgghSnZxvOqbJh5auR2fo4uGnr5ITzjh8gLXoBCnzmj-mrVwTSVkn3VcyZKgX/exec',
-		paging: true,
-		order: [],
-		layout: {
-			topStart: null,
-			topEnd: 'search',
-			bottomStart: 'pageLength',
-			bottomEnd: 'paging',
-			bottom2Start: 'info'
-    	},
-		scrollX: true,
-    	scrollY: 700,
-		columns: [
-			{ data: 'Name' },
-			{ data: 'Adam Willson' },
-			{ data: 'Andrew Sampson' },
-			{ data: 'Andrew Simmonds' },
-			{ data: 'Annette and Gary' },
-			{ data: 'Brad Warman' },
-			{ data: 'Caleb Dean' },
-			{ data: 'Cepsational' },
-			{ data: 'Dan Loveridge' },
-			{ data: 'David Hart' },
-			{ data: 'Gary Dean' },
-			{ data: 'Hosie' },
-			{ data: 'Isaac Gartlan' },
-			{ data: 'Kaes' },
-			{ data: 'Kye Dean' },
-			{ data: 'Matthias Bartlett' },
-			{ data: 'Michael Dean' },
-			{ data: 'Michael Van Dyk' },
-			{ data: 'Nathan Quarrell' },
-			{ data: 'Optical AssAssins' },
-			{ data: 'Ozan Cakar' },
-			{ data: 'Paul Dean' },
-			{ data: 'Richard Kemp' },
-			{ data: 'Rob Dean' },
-			{ data: 'Russell Rawlings' },
-			{ data: 'The Infamous Seagullo' },
-			{ data: "Tim O'Shea" },
-			{ data: 'Tim Stevenson' },
-			{ data: 'Trent McGee' },
-			{ data: 'Trevor Gartlan' }
-		]
-});
+			ajax: 'https://script.google.com/macros/s/AKfycbx2tP6RgghSnZxvOqbJh5auR2fo4uGnr5ITzjh8gLXoBCnzmj-mrVwTSVkn3VcyZKgX/exec',
+			paging: true,
+			order: [],
+			layout: {
+				topStart: null,
+				topEnd: 'search',
+				bottomStart: 'pageLength',
+				bottomEnd: 'paging',
+				bottom2Start: 'info'
+			},
+			scrollX: true,
+			scrollY: 700,
+			columns: [
+				{ data: 'Name' },
+				{ data: 'Adam Willson' },
+				{ data: 'Andrew Sampson' },
+				{ data: 'Andrew Simmonds' },
+				{ data: 'Annette and Gary' },
+				{ data: 'Brad Warman' },
+				{ data: 'Caleb Dean' },
+				{ data: 'Cepsational' },
+				{ data: 'Dan Loveridge' },
+				{ data: 'David Hart' },
+				{ data: 'Gary Dean' },
+				{ data: 'Hosie' },
+				{ data: 'Isaac Gartlan' },
+				{ data: 'Kaes' },
+				{ data: 'Kye Dean' },
+				{ data: 'Matthias Bartlett' },
+				{ data: 'Michael Dean' },
+				{ data: 'Michael Van Dyk' },
+				{ data: 'Nathan Quarrell' },
+				{ data: 'Optical AssAssins' },
+				{ data: 'Ozan Cakar' },
+				{ data: 'Paul Dean' },
+				{ data: 'Richard Kemp' },
+				{ data: 'Rob Dean' },
+				{ data: 'Russell Rawlings' },
+				{ data: 'The Infamous Seagullo' },
+				{ data: "Tim O'Shea" },
+				{ data: 'Tim Stevenson' },
+				{ data: 'Trent McGee' },
+				{ data: 'Trevor Gartlan' }
+			],
+
+			columnDefs: [
+				{ targets: '_all',
+					createdCell: function (td, cellData, rowData, row, col) {
+						if (cellData.endsWith('- J')) {
+							$(td).css('background-color', '#312450');
+							$(td).css('color', 'white');
+							$(td).addClass('joker');
+						}
+					}
+				}
+			]
+
+		});
+
 	</script>
 
 </body>
