@@ -7,10 +7,12 @@
 <html>
 
 <head>
-	<title>SportsMaster History</title>
+	<title>SportsMaster 2025</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/brads.css" />
+	<link rel="stylesheet" href="assets/css/nav.css" />
 	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -21,23 +23,92 @@
 
 <body class="is-preload">
 
-	<div class="mobile-wrapper">
-		<div class="mobile-container">
-		  <div class="content">
-			<nav>
-			  <input type="checkbox" id="hamburger1" />
-			  <label for="hamburger1"></label>
-			  
-			  <ul class="nav-links">
-				<li><a href="#">about us</a></li>
-				<li><a href="#">products</a></li>
-				<li><a href="#">media</a></li>
-				<li><a href="#">contact us</a></li>
-			  </ul>
-			</nav>
-		  </div>
+	<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Side Bar Navigation</title>
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans:400,600" rel="stylesheet">-->
+  </head>
+  <body>
+    
+	<!-- Navigation sidebar start-->
+          <nav role="navigation">
+            <div id="menuToggle">
+              <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            <ul id="menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="leaderboard.html">Leaderboard</a></li>
+              <li><a href="winners.html">Winners list</a></li>
+              <li><a href="selections.html">Selections</a></li>
+			  <li><a href="events.html">Events</a></li>
+			  <li><a href="history.html">Hall of Champions</a></li>
+            </ul>
+           </div>
+          </nav>
+	<!-- Navigation sidebar end-->
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Events -->
+		<section id="two" class="wrapper style2 fade-up">
+			<div class="inner">
+				<h2>Hall of Champions</h2>
+				<p>Behold! These titans of sports tipping, these SportsMasters of legend, have claimed vivtory and shall forever bask in the radiant glow of glory! </p>
+				<p>
+					2024 - Tim O'Shea<br>
+					2023 - Dan Loveridge<br>
+					2022 - No competition due to COVID<br>
+					2021 - No competition due to COVID<br>
+					2020 - Brad Warman<br>
+					2019 - Gary Dean<br>
+					2018 - David Hart<br>
+					2017 - Gary Dean<br><br>
+				</p>
+				
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; SportsMaster2025. All rights reserved.</li>
+			</ul>
 		</div>
-	  </div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+	<script>
+		new DataTable('#events', {
+		ajax: 'https://script.google.com/macros/s/AKfycbx5JS7HonW4t2V-aatT81UCHdjZYb3vPpQlevUH5Oi951JyXbbPelJGQZtCC_oLeOhMjQ/exec',
+		paging: false,
+		order: [[2, 1, 'desc']],
+		layout: {
+			topStart: null,
+			bottom: null,
+			bottomStart: null,
+			bottomEnd: null
+    },
+		columns: [
+			{ data: 'Event' },
+			{ data: 'Month' }
+		]
+});
+	</script>
 
 </body>
 
