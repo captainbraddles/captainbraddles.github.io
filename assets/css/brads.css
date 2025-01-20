@@ -55,6 +55,13 @@ ul#countdown {
 
 @media screen and (max-width: 736px) {
 
+    .rules-list {
+        text-align: left;
+        list-style: disc;
+		margin: 0 0 2em 0;
+		padding-left: 1em;
+    }
+
     #gaz-hammy {
         display: block !important;
         max-height: 70%;
