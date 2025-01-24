@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/brads.css" />
 	<link rel="stylesheet" href="assets/css/nav.css" />
+	<link rel="stylesheet" href="assets/css/ticker.css" />
 	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
@@ -27,32 +28,42 @@
 	<!-- Navigation sidebar start-->
 	<nav role="navigation">
 		<div id="menuToggle">
-		  <input type="checkbox" />
+			<input type="checkbox" />
 			<span></span>
 			<span></span>
 			<span></span>
-		<ul id="menu">
-		  <li><a href="index.html">Home</a></li>
-		  <li><a href="leaderboard.html">Leaderboard</a></li>
-		  <li><a href="winners.html">Winners list</a></li>
-		  <li><a href="selections.html">Selections</a></li>
-		  <li><a href="events.html">Events</a></li>
-		  <li><a href="rules.html">Rules</a></li>
-		  <li><a href="history.html">Hall of Champions</a></li>
-		  <li><a href="">Merch (coming soon!)</a></li>
-		</ul>
-	   </div>
-	  </nav>
-<!-- Navigation sidebar end-->
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="leaderboard.html">Leaderboard</a></li>
+				<li><a href="winners.html">Winners list</a></li>
+				<li><a href="selections.html">Selections</a></li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="rules.html">Rules</a></li>
+				<li><a href="history.html">Hall of Champions</a></li>
+				<li><a href="">Merch (coming soon!)</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation sidebar end-->
 
 	<!-- Wrapper -->
 	<div id="wrapper">
+
+		<!-- Ticker start-->
+
+		<div id="tickerwrap">
+			<marquee id="ticker">
+				Sportsmasters remaining - Aus Open Womens: Adam, Annette & Gary, Brad, Dan, Isaac, Kaes, Kye, Michael Dean, Optical Assassins, Ozan, Rob, Russell, Tim Shea --- Aus Open Mens: Andrew Simmonds, Annette & Gary, Dan, Hosie, Michael Dean, Nathan, Optical Assassins, Paul, Rob, Russell, Tim Shea, Tim Stevenson, Trevor
+			</marquee>
+		</div>
+
+		<!-- Ticker end-->
 
 		<!-- Intro -->
 		<section id="intro" class="wrapper style2 spotlights">
 			<div class="inner">
 				<div id="title-div">
-					<img id="title-image" src="assets/css/images/Official Logo.png" alt=""/>
+					<img id="title-image" src="assets/css/images/Official Logo.png" alt="" />
 				</div>
 				<p>Welcome to SportsMaster 2025. The place for terrible punters.</p>
 				<div>
@@ -65,22 +76,22 @@
 								<h3 id="event-header">Next event: Womens Australian Open Final</h3>
 								<ul id="countdown">
 									<li class="days">
-									  <div id="days">00</div>
-									  <div id="label">Days</div>
+										<div id="days">00</div>
+										<div id="label">Days</div>
 									</li>
 									<li class="hours">
-									  <div id="hours">00</div>
-									  <div id="label">Hours</div>
+										<div id="hours">00</div>
+										<div id="label">Hours</div>
 									</li>
 									<li class="minutes">
-									  <div id="minutes">00</div>
-									  <div id="label">Minutes</div>
+										<div id="minutes">00</div>
+										<div id="label">Minutes</div>
 									</li>
 									<li class="seconds">
-									  <div id="seconds">00</div>
-									  <div id="label">Seconds</div>
+										<div id="seconds">00</div>
+										<div id="label">Seconds</div>
 									</li>
-								  </ul>
+								</ul>
 							</div>
 						</div>
 						<div class="content">
@@ -89,10 +100,14 @@
 									<h1>SportsMaster 2025</h1>
 									<p>Welcome to SportsMaster 2025. The place for terrible punters.</p>
 									<div>
-										What a Border-Gavaskar Trophy series we witnessed! Points have been allocated, with Kaes and Andrew Sampson securing 40 pointers each for being the only SportsMasters to pick 6 five + wicket hauls and Jasprit Bumrah as man of the series respectively.
+										What a Border-Gavaskar Trophy series we witnessed! Points have been
+										allocated, with Kaes and Andrew Sampson securing 40 pointers each for
+										being the only SportsMasters to pick 6 five + wicket hauls and Jasprit
+										Bumrah as man of the series respectively.
 									</div>
 									<ul class="actions leaderboard-btn">
-										<li><a href="leaderboard.html" class="button scrolly">Leaderboard</a></li>
+										<li><a href="leaderboard.html" class="button scrolly">Leaderboard</a>
+										</li>
 									</ul>
 									<ul class="actions winners-btn">
 										<li><a href="winners.html" class="button scrolly">Winners List</a></li>
