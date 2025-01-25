@@ -4,7 +4,7 @@
           hour = minute * 60,
           day = hour * 24;
 
-    var eventDate = "2025-01-25"; //Use the YYYY-MM-DD format.
+    var eventDate = "2025-01-26"; //Use the YYYY-MM-DD format.
     
     const countDown = new Date(eventDate).getTime(),
         x = setInterval(function() {    
