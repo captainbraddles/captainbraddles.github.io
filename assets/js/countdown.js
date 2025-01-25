@@ -4,12 +4,13 @@
           hour = minute * 60,
           day = hour * 24;
 
-    var eventDate = "2025-01-26"; //Use the YYYY-MM-DD format.
+    var eventDate = "2025-01-26 00:00:00"; //Use the YYYY-MM-DD format.
     
-    const countDown = new Date(eventDate).getTime(),
+    var countDown = new Date(eventDate).getTime();
+
         x = setInterval(function() {    
   
-          const now = new Date().getTime(),
+          var now = new Date().getTime();
                 distance = countDown - now;
   
           document.getElementById("days").innerText = Math.floor(distance / (day)),
