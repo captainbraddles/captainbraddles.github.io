@@ -4,7 +4,7 @@
           hour = minute * 60,
           day = hour * 24;
 
-    var eventDate = "2025-05-31 00:00:00"; //Use the YYYY-MM-DD format
+    var eventDate = "2025-06-21 00:00:00"; //Use the YYYY-MM-DD format
     
     var countDown = new Date(eventDate).getTime();
 
