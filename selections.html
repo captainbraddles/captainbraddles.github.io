@@ -19,7 +19,7 @@
 	</noscript>
 
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
-     crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script>
 
 </head>
 
@@ -28,23 +28,23 @@
 	<!-- Navigation sidebar start-->
 	<nav role="navigation">
 		<div id="menuToggle">
-		  <input type="checkbox" />
+			<input type="checkbox" />
 			<span></span>
 			<span></span>
 			<span></span>
-		<ul id="menu">
-		  <li><a href="index.html">Home</a></li>
-		  <li><a href="leaderboard.html">Leaderboard</a></li>
-		  <li><a href="winners.html">Winners list</a></li>
-		  <li><a href="selections.html">Selections</a></li>
-		  <li><a href="events.html">Events</a></li>
-		  <li><a href="rules.html">Rules</a></li>
-		  <li><a href="history.html">Hall of Champions</a></li>
-		  <li><a href="">Merch (coming soon!)</a></li>
-		</ul>
-	   </div>
-	  </nav>
-<!-- Navigation sidebar end-->
+			<ul id="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="leaderboard.html">Leaderboard</a></li>
+				<li><a href="winners.html">Winners list</a></li>
+				<li><a href="selections.html">Selections</a></li>
+				<li><a href="events.html">Events</a></li>
+				<li><a href="rules.html">Rules</a></li>
+				<li><a href="history.html">Hall of Champions</a></li>
+				<li><a href="">Merch (coming soon!)</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Navigation sidebar end-->
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -52,6 +52,8 @@
 		<!-- Selections -->
 		<section id="three" class="wrapper style1 fade-up">
 			<div class="inner">
+				<h2><a href="jjj_top_100.html">Surprise SportsMaster Event - JJJ Hottest 100 Australian Songs</a></h2>
+				<br><br>
 				<h2>Selections</h2>
 				<p>Here are each SportsMasters selections for 2025 season.</p>
 				<div>
@@ -122,7 +124,7 @@
 
 	<script>
 		new DataTable('#selections', {
-			ajax: 'https://script.google.com/macros/s/AKfycbx2tP6RgghSnZxvOqbJh5auR2fo4uGnr5ITzjh8gLXoBCnzmj-mrVwTSVkn3VcyZKgX/exec',
+			ajax: 'https://script.google.com/macros/s/AKfycbzjL_yzyzUrtVn6eq9IXFvw-_p2zashaTV14PxdhNNzcj2448BOcopywnn4AoRMDb6a/exec',
 			paging: true,
 			order: [],
 			layout: {
@@ -168,7 +170,8 @@
 			],
 
 			columnDefs: [
-				{ targets: '_all',
+				{
+					targets: '_all',
 					createdCell: function (td, cellData, rowData, row, col) {
 						if (cellData.endsWith('- J')) {
 							$(td).css('background-color', '#312450');
