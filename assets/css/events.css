@@ -1,0 +1,273 @@
+/*-- -------------------------- -->
+<---          Services          -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+  #services-1498 {
+    padding: var(--sectionPadding);
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  #services-1498 .cs-container {
+    width: 100%;
+    /* changes to 1280px at desktop */
+    max-width: 56.25rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* 48px - 64px */
+    gap: clamp(3rem, 6vw, 4rem);
+    position: relative;
+    z-index: 15;
+  }
+  #services-1498 .cs-content {
+    display: flex;
+    flex-direction: column;
+    /* centers content horizontally, set to flex-start to left align */
+    align-items: center;
+    width: 100%;
+    /* set text align to left if content needs to be left aligned */
+    text-align: center;
+  }
+  #services-1498 .cs-title {
+    max-width: 23ch;
+  }
+  #services-1498 .cs-card-group {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* 16px - 20px */
+    gap: clamp(1rem, 2vw, 1.25rem);
+  }
+  #services-1498 .cs-item {
+    text-align: center;
+    list-style: none;
+    max-width: 21.25rem;
+    /* 16px - 24px */
+    padding: 1.5rem clamp(1rem, 2.4vw, 1.5rem);
+    /* prevents padding from affecting height and width */
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #E8E8E8;
+    /* 40px - 60px */
+    border-radius: clamp(2.5rem, 5vw, 3.75rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    transition: border-color 0.3s;
+  }
+  #services-1498 .cs-item:hover {
+    border-color: var(--secondary);
+  }
+  #services-1498 .cs-item:hover .cs-picture img {
+    transform: scale(1.2);
+  }
+  #services-1498 .cs-item:hover .cs-h3,
+  #services-1498 .cs-item:hover .cs-link {
+    color: var(--primary);
+  }
+  #services-1498 .cs-item:hover .cs-arrow {
+    filter: initial;
+  }
+  #services-1498 .cs-image-group {
+    /* done in ems so we can use font size to scale it on desktop */
+    width: 16.0625em;
+    height: 12.5em;
+    /* 16px - 24px */
+    margin: 0 0 clamp(1rem, 2.4vw, 1.5rem);
+    position: relative;
+    z-index: 1;
+  }
+  #services-1498 .cs-picture {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* clips the image from overflowing parent on hover */
+    overflow: hidden;
+  }
+  #services-1498 .cs-picture img {
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.65s;
+  }
+  #services-1498 .cs-mask {
+    /* SVG Colors */
+    --maskBorder: #e8e8e8;
+    --maskBG: #fff;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+  }
+  #services-1498 .cs-info {
+    display: flex;
+    flex-direction: column;
+  }
+  #services-1498 .cs-h3 {
+    /* 20px - 25px */
+    font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+    text-align: inherit;
+    line-height: 1.5em;
+    font-weight: 700;
+    width: 100%;
+    margin: 0 0 0.5rem 0;
+    /* prevents padding and border from affecting height and width */
+    box-sizing: border-box;
+    color: var(--headerColor);
+    transition: background-color 0.3s;
+    transition: color 0.3s;
+  }
+  #services-1498 .cs-ages {
+    font-size: 1rem;
+    line-height: 1.2em;
+    text-align: inherit;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: var(--secondary);
+  }
+  #services-1498 .cs-item-text {
+    /* 14px - 16px */
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    text-align: inherit;
+    line-height: 1.5em;
+    max-width: 50ch;
+    /* 16px - 24px */
+    margin: 0 0 clamp(1rem, 2.4vw, 1.5rem);
+    width: 100%;
+    color: var(--bodyTextColor);
+  }
+  #services-1498 .cs-link {
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: inherit;
+    line-height: 1.2em;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: color 0.3s;
+  }
+  #services-1498 .cs-link:hover .cs-arrow {
+    transform: translateX(0.25rem);
+  }
+  #services-1498 .cs-arrow {
+    display: block;
+    height: auto;
+    width: 1.25rem;
+    transition: filter 0.3s,
+                transform 0.3s;
+  }
+  #services-1498 .cs-hills {
+    /* hills Color */
+    --hillBG: #F2FAF8;
+    width: 150%;
+    min-width: 120rem;
+    height: auto;
+    position: absolute;
+    /* positions off the top at tablet */
+    bottom: -6.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #services-1498 .cs-wrapper {
+    width: 140vw;
+    max-width: 91.375rem;
+    height: 70%;
+    display: none;
+    position: absolute;
+    /* 60px - 100px (same as the padding bottom of the section ) */
+    bottom: clamp(3.75rem, 7.82vw, 6.25rem);
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+  }
+  #services-1498 .cs-floater {
+    position: absolute;
+  }
+  #services-1498 .cs-floater1 {
+    left: 0;
+    top: -13.75rem;
+  }
+  #services-1498 .cs-floater2 {
+    bottom: -3.125rem;
+    right: 0;
+  }
+}
+/* Tablet - 768px */
+@media only screen and (min-width: 48rem) {
+  #services-1498 .cs-container {
+    max-width: 80rem;
+  }
+  #services-1498 .cs-card-group {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #services-1498 .cs-item {
+    width: 31.5%;
+  }
+  #services-1498 .cs-image-group {
+    /* scaling it down so it all fits proportionally */
+    font-size: min(1.2vw, 1em);
+  }
+  #services-1498 .cs-wrapper {
+    display: block;
+  }
+  #services-1498 .cs-hills {
+    top: 65%;
+    bottom: auto;
+  }
+}
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+  body.dark-mode #services-1498 {
+    background-color: var(--medium);
+  }
+  body.dark-mode #services-1498 .cs-title,
+  body.dark-mode #services-1498 .cs-text,
+  body.dark-mode #services-1498 .cs-item-text,
+  body.dark-mode #services-1498 .cs-h3,
+  body.dark-mode #services-1498 .cs-link {
+    color: var(--bodyTextColorWhite);
+  }
+  body.dark-mode #services-1498 .cs-text,
+  body.dark-mode #services-1498 .cs-item-text {
+    opacity: 0.8;
+  }
+  body.dark-mode #services-1498 .cs-arrow {
+    filter: grayscale(1) brightness(1000%);
+  }
+  body.dark-mode #services-1498 .cs-item {
+    background-color: var(--dark);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  body.dark-mode #services-1498 .cs-item:hover {
+    border-color: var(--secondary);
+  }
+  body.dark-mode #services-1498 .cs-mask {
+    --maskBG: var(--dark);
+    --maskBorder: var(--secondary);
+  }
+  body.dark-mode #services-1498 .cs-hills {
+    opacity: .23;
+    --hillBG: #fff;
+  }
+}
+                                
