@@ -1,155 +1,230 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
 <head>
-	<title>SportsMaster 2025</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/brads.css" />
-	<link rel="stylesheet" href="assets/css/nav.css" />
-	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
-     crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/standard.css">
+    <link rel="stylesheet" href="assets/css/core-styles.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+  <link rel="stylesheet" href="assets/css/rules.css" />
 </head>
 
-<body class="is-preload">
+<!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
 
+<header id="cs-navigation">
+  <div class="cs-container">
+    <!--Nav Logo-->
+    <a href="" class="cs-logo" aria-label="back to home">
+      <img
+        src="images/Official Logo.png"
+        alt="logo"
+        width="210"
+        height="29"
+        aria-hidden="true"
+        decoding="async"
+      />
+    </a>
+    <!--Navigation List-->
+    <nav class="cs-nav" role="navigation">
+      <!--Mobile Nav Toggle-->
+      <button class="cs-toggle" aria-label="mobile menu toggle">
+        <div class="cs-box" aria-hidden="true">
+          <span class="cs-line cs-line1" aria-hidden="true"></span>
+          <span class="cs-line cs-line2" aria-hidden="true"></span>
+          <span class="cs-line cs-line3" aria-hidden="true"></span>
+        </div>
+      </button>
+      <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+      <div class="cs-ul-wrapper">
+        <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link cs-active">
+                            Home
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="leaderboard.html" class="cs-li-link">
+                            Leaderboard
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link">
+                            Events
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="selections.html" class="cs-li-link">
+                            Selections
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link">
+                            Winners List
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="rules.html" class="cs-li-link">
+                            Rules
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="history.html" class="cs-li-link">
+                            History
+                        </a>
+                    </li>
+                </ul>
+      </div>
+    </nav>
+    <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+    <!--<button id="dark-mode-toggle" aria-label="dark mode toggle">
+            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+        </button>-->
+  </div>
+</header>
 
-	<!-- Navigation sidebar start-->
-	<nav role="navigation">
-		<div id="menuToggle">
-			<input type="checkbox" />
-			<span></span>
-			<span></span>
-			<span></span>
-			<ul id="menu">
-				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsPswI_Ft3wYt_abqrkdYUFOYJ24kkPWLrC52u-ldCWAXTCw/viewform?usp=dialog">SportsMaster 2026 Entries!</a></li>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="leaderboard.html">Leaderboard</a></li>
-				<li><a href="winners.html">Winners list</a></li>
-				<li><a href="selections.html">Selections</a></li>
-				<li><a href="events.html">Events</a></li>
-				<li><a href="rules.html">Rules</a></li>
-				<li><a href="history.html">Hall of Champions</a></li>
-				<li><a href="">Merch (coming soon!)</a></li>
-			</ul>
-		</div>
-	</nav>
-	<!-- Navigation sidebar end-->
+<!-- ============================================ -->
+<!--             Side By Side Reverse             -->
+<!-- ============================================ -->
 
-	<!-- Wrapper -->
-	<div id="wrapper">
-
-		<!-- Intro -->
-		<section id="intro" class="wrapper style2 spotlights">
-			<section class="header">
-				<div class="content">
-					<div class="container">
-						<div class="inner">
-							<h1>Competition rules</h1>
-							<div class="rules-content">
-								<strong>Duration</strong><br>
-								SportsMaster 2025 will run from November 15, 2024 until the Melbourne Cup is run in
-								November 2025.<br><br>
-								<strong>Cost</strong><br>
-								Entry fee is $20 per participant. Groups are allowed, but they can only enter as a
-								single participant.<br><br>
-								<strong>Events</strong><br>
-								Participants will be required to predict the winners (or similar) of various sporting
-								events throughout the competition period. The specific events and their schedules will
-								be announced in advance.<br><br>
-								<strong>Selections</strong><br>
-								Participants are required to submit their selections via the provided platform before
-								9pm November 15. No late entries are permitted. Changes to selections after the entry
-								cut off date are not permitted.<br><br>
-
-								Exemptions to selections after the entry cut off date are at the discretion of
-								competition organisers and will be used for events such as horse racing or Olympics
-								where final fields and qualifying are determined in the lead up to events. This will be
-								explicitly specified for each impacted event via the selection platform.<br><br>
-
-								Unless explicitly specified otherwise on an event, participants can only select one (1)
-								winner (or similar).<br><br>
-								<strong>Jokers</strong><br>
-								Participants are required to select five (5) events as 'jokers'. Any event for which they
-								select the correct winner (or similar) will double any points they are eligible
-								for.<br><br>
-								<strong>Points</strong><br>
-								Each event is worth forty (40) points. If an event is correctly predicted by multiple
-								participants, the forty (40) points are shared equally among them. Points are awarded to one (1)
-								decimal place.<br><br>
-
-								As mentioned above, if a participant has used a joker on a correctly predicted event
-								outcome, any points that they are awarded will be doubled.<br><br>
-
-								In the event of a draw/dead heat where more than one person/team/country shares the
-								outcome required for the event (ie. two runners finish a race in exactly the same time),
-								points will be awarded equally for all participants who correctly predicted any of the
-								winning people/teams/countries. This does not include draws in sports such as cricket,
-								soccer and AFL where draws are a legitimate result. Jokers used in events where there is
-								a draw/dead heat are awarded points in the same fashion as above.<br><br>
-								<strong>Outcomes</strong><br>
-								Outcomes of events are based on the official results declared by the governing body of the event.
-								These official results are final. In the event of any discrepancies between initial reports and 
-								the final official results, the latter will always be used to determine the outcome of the event.<br><br>
-								<strong>Prizes</strong><br>
-								The participant with the highest total points at the end of the competition period will
-								be declared the winner and grand poobah and receive first prize. In the event of a tie,
-								the following tiebreakers will be applied in order:<br><br>
-
-								<ul class="rules-list">
-									<li>Number of correct predictions - The participant with the higher number of
-										correct predictions will be ranked higher.</li>
-									<li>Number of correct joker predictions - The participant with the higher number of
-										correct predictions which they had a joker applied to will be ranked higher.
-									</li>
-									<li>Earliest correct prediction - The participant who made their first correct
-										prediction earliest in the competition will be ranked higher.</li>
-								</ul><br><br>
-
-								Additional prizes are awarded for 2nd, 3rd and last places. Prizes are usually in the
-								form of cash with amounts determined by the number of participants.<br><br>
-								<strong>Modifications</strong><br>
-								Organisers reserve the right to modify the rules or cancel the competition at any
-								time.<br><br>
-
-							</div>
-						</div>
-					</div>
-			</section>
-		</section>
-
-		<!-- Footer -->
-		<footer id="footer" class="wrapper style1-alt">
-			<div class="inner">
-				<ul class="menu">
-					<li>&copy; SportsMaster2025. All rights reserved.</li>
-				</ul>
-			</div>
-		</footer>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script src="assets/js/countdown.js"></script>
-
-
-</body>
-
-</html>
+<section id="sbsr-1475">
+  <div class="cs-container">
+    <!-- Left Image Section -->
+    <div class="cs-image-group">
+      <!--Floating Box-->
+      <div class="cs-box">
+        <!--Blob-->
+      </div>
+      <!--Big Background Image-->
+      <picture class="cs-picture">
+        <source
+          media="(max-width: 600px)"
+          srcset="images/20250329_202236.jpg"
+        />
+        <source
+          media="(min-width: 601px)"
+          srcset="images/20250329_202236.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="images/20250329_202236.jpg"
+          alt="girl"
+          width="542"
+          height="720"
+          aria-hidden="true"
+        />
+      </picture>
+      <!--Oval-->
+      <img
+        class="cs-oval"
+        loading="lazy"
+        decoding="async"
+        src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/oval.svg"
+        alt="oval"
+        width="727"
+        height="480"
+        aria-hidden="true"
+      />
+    </div>
+    <!-- Right Content Section-->
+    <div class="cs-content">
+      <span class="cs-topper"></span>
+      <h2 class="cs-title">Competition Rules</h2>
+      <p class="cs-text"></p>
+      <ul class="cs-ul">
+        <li class="cs-li">
+          <p>
+            <strong>Duration</strong><br />SportsMaster 2026 will run from
+            November 17, 2025 until the Melbourne Cup is run in November 2026.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Cost</strong><br />Entry fee is $20 per participant. Groups
+            are allowed, but they can only enter as a single participant.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Events</strong><br />Participants will be required to
+            predict the winners (or similar) of various sporting events
+            throughout the competition period. The specific events and their
+            schedules will be announced in advance.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Selections</strong><br />Participants are required to submit
+            their selections via the provided platform before 9pm November 15.
+            No late entries are permitted. Changes to selections after the entry
+            cut off date are not permitted. Exemptions to selections after the
+            entry cut off date are at the discretion of competition organisers
+            and will be used for events such as horse racing or Olympics where
+            final fields and qualifying are determined in the lead up to events.
+            This will be explicitly specified for each impacted event via the
+            selection platform. Unless explicitly specified otherwise on an
+            event, participants can only select one (1) winner (or similar).
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Jokers</strong><br />Participants are required to select
+            five (5) events as 'jokers'. Any event for which they select the
+            correct winner (or similar) will double any points they are eligible
+            for.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Points</strong><br />Each event is worth forty (40) points.
+            If an event is correctly predicted by multiple participants, the
+            forty (40) points are shared equally among them. Points are awarded
+            to one (1) decimal place. As mentioned above, if a participant has
+            used a joker on a correctly predicted event outcome, any points that
+            they are awarded will be doubled. In the event of a draw/dead heat
+            where more than one person/team/country shares the outcome required
+            for the event (ie. two runners finish a race in exactly the same
+            time), points will be awarded equally for all participants who
+            correctly predicted any of the winning people/teams/countries. This
+            does not include draws in sports such as cricket, soccer and AFL
+            where draws are a legitimate result. Jokers used in events where
+            there is a draw/dead heat are awarded points in the same fashion as
+            above.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Outcomes</strong><br />Outcomes of events are based on the
+            official results declared by the governing body of the event. These
+            official results are final. In the event of any discrepancies
+            between initial reports and the final official results, the latter
+            will always be used to determine the outcome of the event.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Prizes</strong><br />The participant with the highest total
+            points at the end of the competition period will be declared the
+            winner and grand poobah and receive first prize. In the event of a
+            tie, the following tiebreakers will be applied in order: Number of
+            correct predictions - The participant with the higher number of
+            correct predictions will be ranked higher. Number of correct joker
+            predictions - The participant with the higher number of correct
+            predictions which they had a joker applied to will be ranked higher.
+            Earliest correct prediction - The participant who made their first
+            correct prediction earliest in the competition will be ranked
+            higher. Additional prizes are awarded for 2nd, 3rd and last places.
+            Prizes are usually in the form of cash with amounts determined by
+            the number of participants.
+          </p>
+        </li>
+        <li class="cs-li">
+          <p>
+            <strong>Modifications</strong><br />Organisers reserve the right to
+            modify the rules or cancel the competition at any time.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

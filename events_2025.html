@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>SportsMaster 2025</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/nav.css" />
+	<link rel="stylesheet" href="assets/css/brads.css" />
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+
+	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
+     crossorigin="anonymous"></script>
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Navigation sidebar start-->
+	<nav role="navigation">
+		<div id="menuToggle">
+		  <input type="checkbox" />
+			<span></span>
+			<span></span>
+			<span></span>
+		<ul id="menu">
+			<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsPswI_Ft3wYt_abqrkdYUFOYJ24kkPWLrC52u-ldCWAXTCw/viewform?usp=dialog">SportsMaster 2026 Entries!</a></li>
+		  <li><a href="index.html">Home</a></li>
+		  <li><a href="leaderboard.html">Leaderboard</a></li>
+		  <li><a href="winners.html">Winners list</a></li>
+		  <li><a href="selections.html">Selections</a></li>
+		  <li><a href="events.html">Events</a></li>
+		  <li><a href="rules.html">Rules</a></li>
+		  <li><a href="history.html">Hall of Champions</a></li>
+		  <li><a href="">Merch (coming soon!)</a></li>
+		</ul>
+	   </div>
+	  </nav>
+<!-- Navigation sidebar end-->
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Events -->
+		<section id="two" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>Events</h2>
+				<p>Events list for SportsMaster 2025</p>
+				<div>
+					<table id="events">
+						<thead>
+							<tr>
+								<th>Event</th>
+								<th>Month</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+
+			</div>
+		</section>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; SportsMaster2025. All rights reserved.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+
+	<script>
+		new DataTable('#events', {
+		ajax: 'https://script.google.com/macros/s/AKfycbx5JS7HonW4t2V-aatT81UCHdjZYb3vPpQlevUH5Oi951JyXbbPelJGQZtCC_oLeOhMjQ/exec',
+		paging: false,
+		order: [[2, 1, 'desc']],
+		layout: {
+			topStart: null,
+			bottom: null,
+			bottomStart: null,
+			bottomEnd: null
+    },
+		columns: [
+			{ data: 'Event' },
+			{ data: 'Month' }
+		]
+});
+	</script>
+
+</body>
+
+</html>

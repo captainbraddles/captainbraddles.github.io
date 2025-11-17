@@ -1,123 +1,214 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
 <head>
-	<title>SportsMaster 2025</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="assets/css/nav.css" />
-	<link rel="stylesheet" href="assets/css/brads.css" />
-	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-
-	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
-		crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/standard.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/leaderboard.css">
+    <link rel="stylesheet" href="assets/css/core-styles.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237" crossorigin="anonymous"></script>
 </head>
 
-<body class="is-preload">
+<!-- ============================================ -->
+<!--                 Navigation                   -->
+<!-- ============================================ -->
 
-	<!-- Navigation sidebar start-->
-	<nav role="navigation">
-		<div id="menuToggle">
-			<input type="checkbox" />
-			<span></span>
-			<span></span>
-			<span></span>
-			<ul id="menu">
-				<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfsPswI_Ft3wYt_abqrkdYUFOYJ24kkPWLrC52u-ldCWAXTCw/viewform?usp=dialog">SportsMaster 2026 Entries!</a></li>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="leaderboard.html">Leaderboard</a></li>
-				<li><a href="winners.html">Winners list</a></li>
-				<li><a href="selections.html">Selections</a></li>
-				<li><a href="events.html">Events</a></li>
-				<li><a href="rules.html">Rules</a></li>
-				<li><a href="history.html">Hall of Champions</a></li>
-				<li><a href="">Merch (coming soon!)</a></li>
-			</ul>
-		</div>
-	</nav>
-	<!-- Navigation sidebar end-->
+<header id="cs-navigation">
+    <div class="cs-container">
+        <!--Nav Logo-->
+        <a href="" class="cs-logo" aria-label="back to home">
+            <img src="images/Official Logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
+        </a>
+        <!--Navigation List-->
+        <nav class="cs-nav" role="navigation">
+            <!--Mobile Nav Toggle-->
+            <button class="cs-toggle" aria-label="mobile menu toggle">
+                <div class="cs-box" aria-hidden="true">
+                    <span class="cs-line cs-line1" aria-hidden="true"></span>
+                    <span class="cs-line cs-line2" aria-hidden="true"></span>
+                    <span class="cs-line cs-line3" aria-hidden="true"></span>
+                </div>
+            </button>
+            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
+            <div class="cs-ul-wrapper">
+                <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link cs-active">
+                            Home
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="leaderboard.html" class="cs-li-link">
+                            Leaderboard
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link">
+                            Events
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="selections.html" class="cs-li-link">
+                            Selections
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="index.html" class="cs-li-link">
+                            Winners List
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="rules.html" class="cs-li-link">
+                            Rules
+                        </a>
+                    </li>
+                    <li class="cs-li">
+                        <a href="history.html" class="cs-li-link">
+                            History
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
+        <!--<button id="dark-mode-toggle" aria-label="dark mode toggle">
+            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
+            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
+        </button>-->
+    </div>
+</header>
+                                
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+<!-- ============================================ -->
+<!--                    Table                     -->
+<!-- ============================================ -->
 
-		<!-- Selections -->
-		<section id="three" class="wrapper style1 fade-up">
-			<div class="inner">
-				<h2><a href="jjj_top_100.html">Surprise SportsMaster Event - JJJ Hottest 100 Australian Songs</a></h2>
-				<br><br>
-				<h2>Selections</h2>
-				<p>Here are each SportsMasters selections for 2025 season.</p>
-				<div>
-					<table id="selections">
-						<thead>
-							<tr>
-								<th>Event</th>
-								<th>Adam Willson</th>
-								<th>Andrew Sampson</th>
-								<th>Andrew Simmonds</th>
-								<th>Annette and Gary</th>
-								<th>Brad Warman</th>
-								<th>Caleb Dean</th>
-								<th>Cepsational</th>
-								<th>Dan Loveridge</th>
-								<th>David Hart</th>
-								<th>Gary Dean</th>
-								<th>Hosie</th>
-								<th>Isaac Gartlan</th>
-								<th>Kaes</th>
-								<th>Kye Dean</th>
-								<th>Matthias Bartlett</th>
-								<th>Michael Dean</th>
-								<th>Michael Van Dyk</th>
-								<th>Nathan Quarrell</th>
-								<th>Optical AssAssins</th>
-								<th>Ozan Cakar</th>
-								<th>Paul Dean</th>
-								<th>Richard Kemp</th>
-								<th>Rob Dean</th>
-								<th>Russell Rawlings</th>
-								<th>The Infamous Seagullo</th>
-								<th>Tim O'Shea</th>
-								<th>Tim Stevenson</th>
-								<th>Trent McGee</th>
-								<th>Trevor Gartlan</th>
-							</tr>
-						</thead>
-					</table>
-				</div>
-			</div>
-		</section>
+<section id="table-1669">
+    <div class="cs-container">
+        <div class="cs-content">
+            <span class="cs-topper">Selections</span>
+            <h2 class="cs-title">SportsMaster 2026 Selections</h2>
+            <p class="cs-text">
+                
+            </p>
+        </div>
+        <table id="selections" class="cs-table">
+            <thead>
+                <tr class="cs-color">
+                    <th class="cs-th">SportsMaster</th>
+                    <th class="cs-th">Adelaide 500 - Race 34 - Winning Driver</th>
+                    <th class="cs-th">Ashes - Series Result</th>
+                    <th class="cs-th">Ashes - Man of the Series</th>
+                    <th class="cs-th">Ashes - Most Runs</th>
+                    <th class="cs-th">Ashes - Most Wickets</th>
+                    <th class="cs-th">Soccer - Africa Cup of Nations - Winning Country</th>
+                    <th class="cs-th">Big Bash - Winning Team</th>
+                    <th class="cs-th">Australian Baseball League - Winning Team</th>
+                    <th class="cs-th">Australian Open - Womens Singles Winner</th>
+                    <th class="cs-th">Royal Rumble - Mens Winner</th>
+                    <th class="cs-th">Royal Rumble - Womens Winner</th>
+                    <th class="cs-th">Australian Open - Mens Singles Winner</th>
+                    <th class="cs-th">Australian Open - Mens Doubles Winners</th>
+                    <th class="cs-th">Iron Series - Womens Winner</th>
+                    <th class="cs-th">Iron Series - Mens Winner</th>
+                    <th class="cs-th">Super Bowl - Winning Team</th>
+                    <th class="cs-th">Alpine Skiing - Super G - Womens Winner</th>
+                    <th class="cs-th">Snowboarding - Half Pipe - Mens Winner</th>
+                    <th class="cs-th">Ski Jumping - Large Hill Individual - Mens Winner</th>
+                    <th class="cs-th">LIV Golf Adelaide - Individual Winner</th>
+                    <th class="cs-th">LIV Golf Adelaide - Winning Team</th>
+                    <th class="cs-th">Freestyle Skiing - Aerials - Womens Winner</th>
+                    <th class="cs-th">Bobsled - 4 Man - Mens Winning Country</th>
+                    <th class="cs-th">Total Gold - Number of Australian Gold Medals</th>
+                    <th class="cs-th">T20 Mens World Cup - Winning Team</th>
+                    <th class="cs-th">Australian F1 - Winning Driver</th>
+                    <th class="cs-th">Australian F1 - First Driver to Retire</th>
+                    <th class="cs-th">NBL - Premier</th>
+                    <th class="cs-th">NBL - Andew Gaze Medal - Winner</th>
+                    <th class="cs-th">ESL Pro League Season 23 Finals - Counter Strike - Winning Team</th>
+                    <th class="cs-th">Womens Asian Cup - Winning Team</th>
+                    <th class="cs-th">Sheffield Shield - Winning Team</th>
+                    <th class="cs-th">Bells Beach - Mens Winner</th>
+                    <th class="cs-th">US Masters - Winner</th>
+                    <th class="cs-th">AFL - Anzac Day Essendon v Collingwood - Anzac Medalist</th>
+                    <th class="cs-th">LGT World Mens Curling Championship - Winning Team</th>
+                    <th class="cs-th">World Team Championships - Mens Winning Country</th>
+                    <th class="cs-th">World Team Championships - Womens Winning Country</th>
+                    <th class="cs-th">W-League - Winning Team</th>
+                    <th class="cs-th">FA Cup - Winning Team</th>
+                    <th class="cs-th">NBA - MVP</th>
+                    <th class="cs-th">A-League - Johnny Warren Medal - Winner</th>
+                    <th class="cs-th">A-League - Winning Team</th>
+                    <th class="cs-th">Championship - Play-off Winner</th>
+                    <th class="cs-th">EPL - 10th Place Team</th>
+                    <th class="cs-th">Premier League Darts - Winner</th>
+                    <th class="cs-th">Champions League - Winning Team</th>
+                    <th class="cs-th">Australian Indoor Cricket National Championships - Mens Winning Team</th>
+                    <th class="cs-th">SailGP - New York Grand Prix - Overall Event Winning Team</th>
+                    <th class="cs-th">French Open - Womens Singles Winner</th>
+                    <th class="cs-th">French Open - Mens Singles Winner</th>
+                    <th class="cs-th">English Super Rugby - Premier</th>
+                    <th class="cs-th">NHL - Winning Team</th>
+                    <th class="cs-th">Super Rugby - Winning Team</th>
+                    <th class="cs-th">NBA - Winning Team</th>
+                    <th class="cs-th">Womens T20 World Cup - Winning Country</th>
+                    <th class="cs-th">Wimbledon - Womens Singles Winner</th>
+                    <th class="cs-th">Wimbledon - Mens Singles Winner</th>
+                    <th class="cs-th">British Open - Winner</th>
+                    <th class="cs-th">FIFA World Cup - Winner</th>
+                    <th class="cs-th">FIFA World Cup - Golden Boot</th>
+                    <th class="cs-th">FIFA World Cup - Golden Ball</th>
+                    <th class="cs-th">3x3 Basketball - Mens Winning Country</th>
+                    <th class="cs-th">Swimming - 100m Freestyle - Mens Winner</th>
+                    <th class="cs-th">Athletics - 100m Sprint - Mens Winner</th>
+                    <th class="cs-th">Cycling - Team Sprint - Womens Winning Country</th>
+                    <th class="cs-th">Total Gold - Number of Australian Gold Medals</th>
+                    <th class="cs-th">Lacrosse - World Womens Championship - Winning Country</th>
+                    <th class="cs-th">Super Netball - Winning Team</th>
+                    <th class="cs-th">Surfing - World Surf League - Teahupo'o - Womens Winner</th>
+                    <th class="cs-th">AFL - 9th Place</th>
+                    <th class="cs-th">AFL - Coleman Medal - Winner</th>
+                    <th class="cs-th">AFL - Team with Highest Score at end of regular season</th>
+                    <th class="cs-th">Gaelic Football - All Ireland Senior Championship - Winning Team</th>
+                    <th class="cs-th">Hurling - All Ireland Senior Championship - Winning Team        </th>
+                    <th class="cs-th">Tennis - US Open - Womens Singles Winner</th>
+                    <th class="cs-th">Basketball - Womens World Cup - Winning Country</th>
+                    <th class="cs-th">Tennis - US Open - Mens Singles Winner</th>
+                    <th class="cs-th">SANFL - Premier</th>
+                    <th class="cs-th">SANFL - Magarey Medal - Winner</th>
+                    <th class="cs-th">Ballon dOr - Winner</th>
+                    <th class="cs-th">NRL - Dally M - Winner</th>
+                    <th class="cs-th">AFL - Brownlow Medal - Winner</th>
+                    <th class="cs-th">AFL - Rising Star - Winner</th>
+                    <th class="cs-th">VFL - Premier</th>
+                    <th class="cs-th">NRL - Premier</th>
+                    <th class="cs-th">AFL - Premier</th>
+                    <th class="cs-th">Bathurst - Winning Driver (either)</th>
+                    <th class="cs-th">Phillip Island - Winning Rider</th>
+                    <th class="cs-th">Major League Baseball - Winning Team</th>
+                    <th class="cs-th">Lumberjacking - Stihl Timbersports Team World Championship - 2nd Place Team</th>
+                    <th class="cs-th">Melbourne Cup - Winning Horse</th>
+                    <th class="cs-th">Joker1</th>
+                    <th class="cs-th">Joker2</th>
+                    <th class="cs-th">Joker3</th>
+                    <th class="cs-th">Joker4</th>
+                    <th class="cs-th">Joker5</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</section>
 
-	</div>
 
-	<!-- Footer -->
-	<footer id="footer" class="wrapper style1-alt">
-		<div class="inner">
-			<ul class="menu">
-				<li>&copy; Untitled. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
+
+<!-- Scripts -->
+	<!--<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrollex.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="assets/js/main.js"></script>-->
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
@@ -125,49 +216,126 @@
 
 	<script>
 		new DataTable('#selections', {
-			ajax: 'https://script.google.com/macros/s/AKfycbzjL_yzyzUrtVn6eq9IXFvw-_p2zashaTV14PxdhNNzcj2448BOcopywnn4AoRMDb6a/exec',
-			paging: true,
+			ajax: 'https://script.google.com/macros/s/AKfycbwPnOItfmOLmAzILPRd9kMbjGQDUUdn_sJTHtQZPnZP6IUoE78ke_RKfX0VAqZ9KUCTcw/exec',
+			fixedColumns: true,
+            paging: false,
+            scrollCollapse: true,
+            pageLength: 25,
+            autoWidth: true,
 			order: [],
 			layout: {
-				topStart: null,
-				topEnd: 'search',
-				bottomStart: 'pageLength',
-				bottomEnd: 'paging',
-				bottom2Start: 'info'
+				topStart: 'info',
+                bottom: 'paging',
+                bottomStart: null,
+                bottomEnd: null
 			},
-			scrollX: true,
-			scrollY: 700,
+            scrollX: true,
+			scrollY: false,
+
+            createdRow: function(row, data, dataIndex, cells) {
+                $(row).addClass('cs-tr');
+                $(cells).addClass('cs-td');
+                },
+            
 			columns: [
-				{ data: 'Name' },
-				{ data: 'Adam Willson' },
-				{ data: 'Andrew Sampson' },
-				{ data: 'Andrew Simmonds' },
-				{ data: 'Annette and Gary' },
-				{ data: 'Brad Warman' },
-				{ data: 'Caleb Dean' },
-				{ data: 'Cepsational' },
-				{ data: 'Dan Loveridge' },
-				{ data: 'David Hart' },
-				{ data: 'Gary Dean' },
-				{ data: 'Hosie' },
-				{ data: 'Isaac Gartlan' },
-				{ data: 'Kaes' },
-				{ data: 'Kye Dean' },
-				{ data: 'Matthias Bartlett' },
-				{ data: 'Michael Dean' },
-				{ data: 'Michael Van Dyk' },
-				{ data: 'Nathan Quarrell' },
-				{ data: 'Optical AssAssins' },
-				{ data: 'Ozan Cakar' },
-				{ data: 'Paul Dean' },
-				{ data: 'Richard Kemp' },
-				{ data: 'Rob Dean' },
-				{ data: 'Russell Rawlings' },
-				{ data: 'The Infamous Seagullo' },
-				{ data: "Tim O'Shea" },
-				{ data: 'Tim Stevenson' },
-				{ data: 'Trent McGee' },
-				{ data: 'Trevor Gartlan' }
+				{ data: 'SportsMaster' },
+                { data: 'Adelaide 500 - Race 34 - Winning Driver' },
+                { data: 'Ashes - Series Result' },
+                { data: 'Ashes - Man of the Series' },
+                { data: 'Ashes - Most Runs' },
+                { data: 'Ashes - Most Wickets' },
+                { data: 'Soccer - Africa Cup of Nations - Winning Country' },
+                { data: 'Big Bash - Winning Team' },
+                { data: 'Australian Baseball League - Winning Team' },
+                { data: 'Australian Open - Womens Singles Winner' },
+                { data: 'Royal Rumble - Mens Winner' },
+                { data: 'Royal Rumble - Womens Winner' },
+                { data: 'Australian Open - Mens Singles Winner' },
+                { data: 'Australian Open - Mens Doubles Winners' },
+                { data: 'Iron Series - Womens Winner' },
+                { data: 'Iron Series - Mens Winner' },
+                { data: 'Super Bowl - Winning Team' },
+                { data: 'Alpine Skiing - Super G - Womens Winner' },
+                { data: 'Snowboarding - Half Pipe - Mens Winner' },
+                { data: 'Ski Jumping - Large Hill Individual - Mens Winner' },
+                { data: 'LIV Golf Adelaide - Individual Winner' },
+                { data: 'LIV Golf Adelaide - Winning Team' },
+                { data: 'Freestyle Skiing - Aerials - Womens Winner' },
+                { data: 'Bobsled - 4 Man - Mens Winning Country' },
+                { data: 'Total Gold - Number of Australian Gold Medals' },
+                { data: 'T20 Mens World Cup - Winning Team' },
+                { data: 'Australian F1 - Winning Driver' },
+                { data: 'Australian F1 - First Driver to Retire' },
+                { data: 'NBL - Premier' },
+                { data: 'NBL - Andew Gaze Medal - Winner' },
+                { data: 'ESL Pro League Season 23 Finals - Counter Strike - Winning Team' },
+                { data: 'Womens Asian Cup - Winning Team' },
+                { data: 'Sheffield Shield - Winning Team' },
+                { data: 'Bells Beach - Mens Winner' },
+                { data: 'US Masters - Winner' },
+                { data: 'AFL - Anzac Day Essendon v Collingwood - Anzac Medalist' },
+                { data: 'LGT World Mens Curling Championship - Winning Team' },
+                { data: 'World Team Championships - Mens Winning Country' },
+                { data: 'World Team Championships - Womens Winning Country' },
+                { data: 'W-League - Winning Team' },
+                { data: 'FA Cup - Winning Team' },
+                { data: 'NBA - MVP' },
+                { data: 'A-League - Johnny Warren Medal - Winner' },
+                { data: 'A-League - Winning Team' },
+                { data: 'Championship - Play-off Winner' },
+                { data: 'EPL - 10th Place Team' },
+                { data: 'Premier League Darts - Winner' },
+                { data: 'Champions League - Winning Team' },
+                { data: 'Australian Indoor Cricket National Championships - Mens Winning Team' },
+                { data: 'SailGP - New York Grand Prix - Overall Event Winning Team' },
+                { data: 'French Open - Womens Singles Winner' },
+                { data: 'French Open - Mens Singles Winner' },
+                { data: 'English Super Rugby - Premier' },
+                { data: 'NHL - Winning Team' },
+                { data: 'Super Rugby - Winning Team' },
+                { data: 'NBA - Winning Team' },
+                { data: 'Womens T20 World Cup - Winning Country' },
+                { data: 'Wimbledon - Womens Singles Winner' },
+                { data: 'Wimbledon - Mens Singles Winner' },
+                { data: 'British Open - Winner' },
+                { data: 'FIFA World Cup - Winner' },
+                { data: 'FIFA World Cup - Golden Boot' },
+                { data: 'FIFA World Cup - Golden Ball' },
+                { data: '3x3 Basketball - Mens Winning Country' },
+                { data: 'Swimming - 100m Freestyle - Mens Winner' },
+                { data: 'Athletics - 100m Sprint - Mens Winner' },
+                { data: 'Cycling - Team Sprint - Womens Winning Country' },
+                { data: 'Total Gold - Number of Australian Gold Medals' },
+                { data: 'Lacrosse - World Womens Championship - Winning Country' },
+                { data: 'Super Netball - Winning Team' },
+                { data: 'Surfing - World Surf League - Teahupoo - Womens Winner' },
+                { data: 'AFL - 9th Place' },
+                { data: 'AFL - Coleman Medal - Winner' },
+                { data: 'AFL - Team with Highest Score at end of regular season' },
+                { data: 'Gaelic Football - All Ireland Senior Championship - Winning Team' },
+                { data: 'Hurling - All Ireland Senior Championship - Winning Team        ' },
+                { data: 'Tennis - US Open - Womens Singles Winner' },
+                { data: 'Basketball - Womens World Cup - Winning Country' },
+                { data: 'Tennis - US Open - Mens Singles Winner' },
+                { data: 'SANFL - Premier' },
+                { data: 'SANFL - Magarey Medal - Winner' },
+                { data: 'Ballon dOr - Winner' },
+                { data: 'NRL - Dally M - Winner' },
+                { data: 'AFL - Brownlow Medal - Winner' },
+                { data: 'AFL - Rising Star - Winner' },
+                { data: 'VFL - Premier' },
+                { data: 'NRL - Premier' },
+                { data: 'AFL - Premier' },
+                { data: 'Bathurst - Winning Driver (either)' },
+                { data: 'Phillip Island - Winning Rider' },
+                { data: 'Major League Baseball - Winning Team' },
+                { data: 'Lumberjacking - Stihl Timbersports Team World Championship - 2nd Place Team' },
+                { data: 'Melbourne Cup - Winning Horse' },
+                { data: 'Joker1' },
+                { data: 'Joker2' },
+                { data: 'Joker3' },
+                { data: 'Joker4' },
+                { data: 'Joker5' }
 			],
 
 			columnDefs: [
@@ -181,12 +349,10 @@
 						}
 					}
 				}
-			]
+			],
 
 		});
 
 	</script>
-
-</body>
-
-</html>
+    </scripts>
+    
