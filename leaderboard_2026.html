@@ -111,6 +111,7 @@
 		new DataTable('#leaderboard', {
 			ajax: 'https://script.google.com/macros/s/AKfycbyjzZThslnN_knP0m28-JhnDecwf84Hkzm1Y_Vx0J2fnaQuQvByHIU8uk3vyG0P7ay1IA/exec',
 			paging: true,
+            pageLength: 50,
 			order: [],
 			layout: {
 				topStart: null,
@@ -120,7 +121,7 @@
 				bottom2Start: 'info'
 			},
 			scrollX: true,
-			scrollY: 700,
+			scrollY: false,
 			columns: [
 				{ data: 'SportsMaster' },
                 { data: 'Points' },
