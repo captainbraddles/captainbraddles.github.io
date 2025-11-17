@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/standard.css">
     <link rel="stylesheet" href="assets/css/leaderboard.css">
-    <link rel="stylesheet" href="assets/css/brads_table_css.css">
+    <link rel="stylesheet" href="assets/css/core-styles.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237" crossorigin="anonymous"></script>
 </head>
@@ -220,6 +220,7 @@
             paging: false,
             scrollCollapse: true,
             pageLength: 25,
+            autoWidth: true,
 			order: [],
 			layout: {
 				topStart: 'info',
@@ -227,11 +228,14 @@
                 bottomStart: null,
                 bottomEnd: null
 			},
-            scrollX: 1000,
+            scrollX: true,
 			scrollY: false,
-            columnDefs: [
-                { className: 'cs-tr', targets: "_all" }
-            ],
+
+            createdRow: function(row, data, dataIndex, cells) {
+                $(row).addClass('cs-tr');
+                $(cells).addClass('cs-td');
+                },
+            
 			columns: [
 				{ data: 'SportsMaster' },
                 { data: 'Adelaide 500 - Race 34 - Winning Driver' },
@@ -344,7 +348,7 @@
 						}
 					}
 				}
-			]
+			],
 
 		});
 
