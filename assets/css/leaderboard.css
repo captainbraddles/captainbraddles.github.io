@@ -102,4 +102,24 @@
     filter: grayscale(1) brightness(1000%);
   }
 }
-                                
+
+
+/*-- -------------------------- -->
+<---        Brads Changes       -->
+<--- -------------------------- -*/
+
+.joker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.joker-cell {
+  align-items: center;
+}
+
+.joker-img {
+  width: auto;
+  height: 6rem ;
+}

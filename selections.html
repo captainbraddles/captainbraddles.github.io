@@ -217,12 +217,22 @@
 	<script>
 		new DataTable('#selections', {
 			ajax: 'https://script.google.com/macros/s/AKfycbwPnOItfmOLmAzILPRd9kMbjGQDUUdn_sJTHtQZPnZP6IUoE78ke_RKfX0VAqZ9KUCTcw/exec',
-			fixedColumns: true,
+            // fixed first column
+            fixedColumns: { leftColumns: 1 },
+
+            // REQUIRED for FixedColumns to work
+            scrollX: true,
+
+            // let DataTables compute widths
+            autoWidth: true,
+
+            // responsive can break FixedColumns — disable it
+            responsive: false,
+
             paging: false,
             scrollCollapse: true,
-            pageLength: 25,
-            autoWidth: true,
-			order: [],
+            pageLength: 50,
+            order: [],
 			layout: {
 				topStart: 'info',
                 bottom: 'paging',
@@ -341,15 +351,58 @@
 			columnDefs: [
 				{
 					targets: '_all',
-					createdCell: function (td, cellData, rowData, row, col) {
-						if (cellData.endsWith('- J')) {
-							$(td).css('background-color', '#312450');
-							$(td).css('color', 'white');
-							$(td).addClass('joker');
-						}
-					}
+                    //data: 'images/joker-small.png',
+                    data: '',
+                    createdCell: function (cell, cellData, rowData, rowIndex, colIndex) {
+                        
+                        var table = $('#selections').DataTable(); 
+                        var test = table.columns().data();
+                        var joker1 = table.cell(rowIndex, 93).data();
+                        var joker2 = table.cell(rowIndex, 94).data();
+                        var joker3 = table.cell(rowIndex, 95).data();
+                        var joker4 = table.cell(rowIndex, 96).data();
+                        var joker5 = table.cell(rowIndex, 97).data();
+                        console.log(rowIndex);
+                        // Access the column's settings using col
+                        var columnSettings = table.settings()[0].aoColumns[colIndex];
+            
+                        // The header title is typically stored in sTitle
+                        var headerTitle = columnSettings.sTitle; 
+
+                        if (headerTitle === joker1 || headerTitle === joker2 || headerTitle === joker3 || headerTitle === joker4 || headerTitle === joker5) {
+                            $(cell).addClass('joker');
+                            $(cell).html('<div class="joker joker-container"><div class="joker-cell">' + cellData + '</div><div class="joker-cell"><img class="joker-img" src="images/joker-small.png"></div></div>');
+                        }
+                        
+                    }
 				}
 			],
+
+            initComplete: function() {
+        const api = this.api();
+
+        // Step 1: ensure columns widths are adjusted
+        api.columns.adjust();
+
+        // Step 2: let the browser paint then relayout FixedColumns
+        // small timeout helps in many browsers/DOM situations
+        setTimeout(function() {
+            // ensure header/body containers also align
+            api.columns.adjust(); // call again just in case
+            // relayout FixedColumns extension (if available)
+            if (api.fixedColumns) {
+                try {
+                    api.fixedColumns().relayout();
+                } catch (e) {
+                    // some builds use a different access pattern; fall back
+                    // no-op if relayout not present
+                    console.warn('FixedColumns relayout failed', e);
+                }
+            }
+            // final draw to ensure DOM matched
+            api.draw(false);
+        }, 50); // 50ms is usually enough
+    }
 
 		});
 
