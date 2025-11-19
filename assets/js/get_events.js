@@ -1,55 +1,77 @@
-var payloadUrl = "https://script.google.com/macros/s/AKfycbzE09QC8KSBQv0fVQ2pV5lND_iMvEbdQ7GnSgltmvGsICU0bB9tvFt2ASJtOvxtCg_JgA/exec";
+document.addEventListener("DOMContentLoaded", () => {
 
-    fetch(payloadUrl) // Replace with your JSON file path or API endpoint
-  .then(response => response.json()) // Parse the JSON response
-  .then(data => {
-    console.log("Brad - " + data.length);
-    // 'data' is now a JavaScript object containing your JSON data
-    // Proceed to display the data on the webpage
-    displayData(data);
-  })
-  .catch(error => console.error('Error fetching JSON:', error));
+    // Start loading your events
+    getEvents()
+        .then(() => {
+            hideLoader();
+            showContent();
+        })
+        .catch(error => console.error("Error loading events:", error));
 
-  function displayData(data) {
-    try {
-       
-        // Extract rows from the data
-        const rows = data.values;
+});
 
-        // Get the table body element
-        const tableBody = document.querySelector('#output');
-
-        // Loop through the rows (starting from row 1 to skip headers)
-        for (let i = 1; i < rows.length; i++) {
-            const row = document.createElement('div');
-            
-            // Loop through each cell in the row and create a table cell for each
-            rows[i].forEach(cell => {
-                const cellElement = document.createElement('li');
-                cellElement.textContent = cell;
-                row.appendChild(cellElement);
-            });
-            
-            // Append the row to the table
-            tableBody.appendChild(row);
-        }
-    } catch (error) {
-        console.error('Error fetching Google Sheets data:', error);
-    }
+function hideLoader() {
+    const loader = document.getElementById("loader");
+    if (loader) loader.style.display = "none";
 }
 
+function showContent() {
+    const content = document.getElementById("content");
+    if (content) content.style.display = "block";
+}
 
+async function getEvents() {
+    const payloadUrl = "https://script.google.com/macros/s/AKfycbzE09QC8KSBQv0fVQ2pV5lND_iMvEbdQ7GnSgltmvGsICU0bB9tvFt2ASJtOvxtCg_JgA/exec";
 
+    const response = await fetch(payloadUrl);
+    const data = await response.json();
 
+    let payload;
 
-//   // Example: Displaying an array of objects (if 'data' contains an array)
-//   if (Array.isArray(data.items)) {
-//     const ul = document.createElement('ul');
-//     data.items.forEach(item => {
-//       const li = document.createElement('li');
-//       li.textContent = item.name; // Assuming 'item' has a 'name' property
-//       ul.appendChild(li);
-//     });
-//     outputDiv.appendChild(ul);
-//   }
-//}
+    // If Google Apps Script returns a JSON string, parse it
+    try {
+        payload = typeof data === "string" ? JSON.parse(data) : data;
+    } catch (e) {
+        console.error("JSON parse error:", e);
+        return;
+    }
+
+    const container = document.getElementById("output");
+    if (!container) return;
+
+    container.innerHTML = ""; // clear list first
+
+    payload.forEach(item => {
+
+        const html = `
+        <li class="cs-item">
+            <div class="cs-image-group">
+                <picture class="cs-picture">
+                    <source media="(max-width: 600px)" srcset="${item.Image}" />
+                    <source media="(min-width: 601px)" srcset="${item.Image}" />
+                    <img loading="lazy" decoding="async"
+                        src="${item.Image}" alt="${item.Event}"
+                        width="413" height="240" aria-hidden="true" />
+                </picture>
+
+                <!-- SVG Mask -->
+                <svg class="cs-mask" viewBox="0 0 267 209">
+                    <!-- (SVG contents unchanged) -->
+                </svg>
+            </div>
+
+            <div class="cs-info">
+                <h3 class="cs-h3">${item.Event}</h3>
+                <span class="cs-ages">${item.Category}</span>
+                <p class="cs-item-text">${item["Selection required"]}</p>
+
+                <a href="${item.Information}" class="cs-link">
+                    More info
+               </a>
+            </div>
+        </li>
+        `;
+
+        container.innerHTML += html;
+    });
+}
