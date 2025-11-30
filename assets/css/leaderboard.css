@@ -20,7 +20,7 @@
   #table-1669 .cs-content {
     /* set text align to left if content needs to be left aligned */
     text-align: left;
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-direction: column;
     /* centers content horizontally, set to flex-start to left align */

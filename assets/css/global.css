@@ -14,14 +14,14 @@
     --bodyFontSize: 1rem;
     /* 60px - 100px top and bottom */
     --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
-    /*--bodyFont: "Open Sans", sans-serif;
-    --headingFont: "Open Sans", sans-serif;*/
+    --bodyFont: "Lato", sans-serif;
+    --headingFont: "Lato", sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    /*font-family: var(--bodyFont);*/
+    font-family: var(--bodyFont);
 }
 
 *, *:before, *:after {
