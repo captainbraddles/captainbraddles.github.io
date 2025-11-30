@@ -97,7 +97,7 @@
                 
             </p>
         </div>
-        <table id="leaderboard" class="cs-table">
+        <table id="leaderboard" class="cs-table hover">
             <thead>
                 <tr class="cs-color">
                     <th class="cs-th">SportsMaster</th>
@@ -117,73 +117,96 @@
 
 	<script>
 		new DataTable('#leaderboard', {
-			ajax: 'https://script.google.com/macros/s/AKfycbyjzZThslnN_knP0m28-JhnDecwf84Hkzm1Y_Vx0J2fnaQuQvByHIU8uk3vyG0P7ay1IA/exec',
-			paging: true,
-            pageLength: 50,
-			order: [
-            [1, 'desc'],
-            [0, 'asc']
-            ],
-			layout: {
-				topStart: null,
-				topEnd: 'search',
-				bottomStart: 'pageLength',
-				bottomEnd: 'paging',
-				bottom2Start: 'info'
-			},
-			scrollX: true,
-			scrollY: false,
-			columns: [
-				{ data: 'SportsMaster' },
-                { data: 'Points' },
-                { data: 'Winners Selected' },
-                { data: 'Jokers Won' },
-			],
-            drawCallback: function (settings) {
-                const api = this.api();
+    ajax: {
+        url: 'https://script.google.com/macros/s/AKfycbyjzZThslnN_knP0m28-JhnDecwf84Hkzm1Y_Vx0J2fnaQuQvByHIU8uk3vyG0P7ay1IA/exec',
+        dataSrc: function (json) {
 
-                const first  = api.cell(':eq(0)', 0, { page: 'current' }).node();
-                const second = api.cell(':eq(1)', 0, { page: 'current' }).node();
-                const third  = api.cell(':eq(2)', 0, { page: 'current' }).node();
-                const last   = api.cell(':eq(24)', 0, { page: 'current' }).node();
+            // Extract rows array:
+            let rows = json.data;
 
-                function applyIcon(cell, iconHtml) {
-                    if (!cell) return;
+            // 1️⃣ Sort by Points DESC (initial ranking)
+            rows.sort((a, b) => b.Points - a.Points);
 
-                    const $cell = $(cell);
+            // 2️⃣ Assign permanent award to each person
+            rows.forEach((row, index) => {
+                if (index === 0) row.award = 'gold';
+                else if (index === 1) row.award = 'silver';
+                else if (index === 2) row.award = 'bronze';
+                else if (index === rows.length - 1) row.award = 'last';
+                else row.award = null;
+            });
 
-                    if ($cell.hasClass('leader-added')) return;
+            // Return the modified dataset to DataTables
+            return rows;
+        }
+    },
 
-                    const original = $cell.text();
+    paging: true,
+    pageLength: 50,
+    order: [
+        [1, 'desc'], // Points
+        [0, 'asc']   // Name
+    ],
 
-                    $cell
-                        .addClass('leader-added')
-                        .html(`
-                            <div class="icon-wrap">
-                                ${iconHtml}
-                                <span>${original}</span>
-                            </div>
-                        `);
-                }
+    layout: {
+        topStart: 'search',
+        bottomStart: 'pageLength',
+        bottomEnd: 'paging',
+        bottom2Start: 'info'
+    },
 
-                applyIcon(first,
-                    `<i class="fa-solid fa-medal" style="color:#FFD700;"></i>`
-                );
+    scrollX: true,
+    scrollY: false,
 
-                applyIcon(second,
-                    `<i class="fa-solid fa-medal" style="color:#C0C0C0;"></i>`
-                );
+    columns: [
+        { data: 'SportsMaster' },
+        { data: 'Points' },
+        { data: 'Winners Selected' },
+        { data: 'Jokers Won' },
+    ],
 
-                applyIcon(third,
-                    `<i class="fa-solid fa-medal" style="color:#CD7F32;"></i>`
-                );
+    rowCallback: function (row, data) {
+        let icon = '';
 
-                applyIcon(last,
-                    `<i class="fa-solid fa-poo" style="color:#8B4513;"></i>`
-                );
-            }
+        switch (data.award) {
+            case 'gold':
+                icon = '<i class="fa-solid fa-medal" style="color:#FFD700;"></i>';
+                break;
+            case 'silver':
+                icon = '<i class="fa-solid fa-medal" style="color:#C0C0C0;"></i>';
+                break;
+            case 'bronze':
+                icon = '<i class="fa-solid fa-medal" style="color:#CD7F32;"></i>';
+                break;
+            case 'last':
+                icon = '<i class="fa-solid fa-poo" style="color:#8B4513;"></i>';
+                break;
+        }
 
-		});
+        // Insert icon into first column (SportsMaster)
+        const cell = $('td:eq(0)', row);
+
+        if (icon) {
+            cell.html(`${icon} ${data.SportsMaster}`);
+        } else {
+            cell.text(data.SportsMaster); // no award
+        }
+    },
+
+    drawCallback: function () {
+        var api = this.api();
+        var rows = api.rows({ page: 'current' }).nodes(); // only current page
+
+        // Remove previous styling
+        $(rows).removeClass('top-row-1 top-row-2 top-row-3');
+
+        // Apply classes to first 3 rows
+        if (rows.length > 0) $(rows[0]).addClass('top-row-1');
+        if (rows.length > 1) $(rows[1]).addClass('top-row-2');
+        if (rows.length > 2) $(rows[2]).addClass('top-row-3');
+    }
+});
+
 
 	</script>
 

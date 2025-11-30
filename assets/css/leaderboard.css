@@ -20,7 +20,7 @@
   #table-1669 .cs-content {
     /* set text align to left if content needs to be left aligned */
     text-align: left;
-    width: 50%;
+    width:100%;
     display: flex;
     flex-direction: column;
     /* centers content horizontally, set to flex-start to left align */
@@ -67,6 +67,14 @@
     height: 1rem;
     width: auto;
   }
+
+  tbody {
+    font-size: larger;
+  }
+
+  .dt-container {
+    width: inherit;
+  }
 }
 /* Tablet - 600px */
 @media screen and (max-width: 37.5rem) {
@@ -74,6 +82,15 @@
     display: block;
     overflow-x: auto;
   }
+
+  tbody {
+    font-size: larger;
+  }
+
+  .dt-container {
+    width: inherit;
+  }
+
 }
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
@@ -133,3 +150,23 @@
 .icon-wrap i {
     flex-shrink: 0;          /* prevent icon from squishing */
 }
+
+.rank-icon i {
+    margin-right: 6px;
+}
+.gold { 
+  color: #f1c40f;
+}
+.silver { 
+  color: #bdc3c7; 
+}
+.bronze {
+  color: #cd7f32; 
+}
+
+#leaderboard .top-row-1 td,
+    #leaderboard .top-row-2 td,
+    #leaderboard .top-row-3 td {
+        font-size: 1.1em;  /* adjust as needed */
+        font-weight: 600;  /* optional: make bolder */
+    }
