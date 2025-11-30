@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="assets/css/navigation.css">
     <link rel="stylesheet" href="assets/css/leaderboard.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237" crossorigin="anonymous"></script>
 </head>
 
@@ -136,11 +137,52 @@
 				{ data: 'SportsMaster' },
                 { data: 'Points' },
                 { data: 'Winners Selected' },
-                { data: 'Jokers Won' }
+                { data: 'Jokers Won' },
 			],
-            createdRow: function (row, data, dataIndex) {
-                    $('td:eq(2)', row).append('<i class="fas fa-star"></i>');
-            },
+            drawCallback: function (settings) {
+                const api = this.api();
+
+                const first  = api.cell(':eq(0)', 0, { page: 'current' }).node();
+                const second = api.cell(':eq(1)', 0, { page: 'current' }).node();
+                const third  = api.cell(':eq(2)', 0, { page: 'current' }).node();
+                const last   = api.cell(':eq(24)', 0, { page: 'current' }).node();
+
+                function applyIcon(cell, iconHtml) {
+                    if (!cell) return;
+
+                    const $cell = $(cell);
+
+                    if ($cell.hasClass('leader-added')) return;
+
+                    const original = $cell.text();
+
+                    $cell
+                        .addClass('leader-added')
+                        .html(`
+                            <div class="icon-wrap">
+                                ${iconHtml}
+                                <span>${original}</span>
+                            </div>
+                        `);
+                }
+
+                applyIcon(first,
+                    `<i class="fa-solid fa-medal" style="color:#FFD700;"></i>`
+                );
+
+                applyIcon(second,
+                    `<i class="fa-solid fa-medal" style="color:#C0C0C0;"></i>`
+                );
+
+                applyIcon(third,
+                    `<i class="fa-solid fa-medal" style="color:#CD7F32;"></i>`
+                );
+
+                applyIcon(last,
+                    `<i class="fa-solid fa-poo" style="color:#8B4513;"></i>`
+                );
+            }
+
 		});
 
 	</script>

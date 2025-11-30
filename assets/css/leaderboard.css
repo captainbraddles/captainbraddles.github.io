@@ -123,3 +123,13 @@
   width: auto;
   height: 6rem ;
 }
+
+.icon-wrap {
+    display: flex;
+    align-items: center;     /* vertical centering */
+    gap: 6px;                /* spacing between icon and text */
+}
+
+.icon-wrap i {
+    flex-shrink: 0;          /* prevent icon from squishing */
+}
