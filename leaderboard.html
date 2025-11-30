@@ -119,7 +119,10 @@
 			ajax: 'https://script.google.com/macros/s/AKfycbyjzZThslnN_knP0m28-JhnDecwf84Hkzm1Y_Vx0J2fnaQuQvByHIU8uk3vyG0P7ay1IA/exec',
 			paging: true,
             pageLength: 50,
-			order: [],
+			order: [
+            [1, 'desc'],
+            [0, 'asc']
+            ],
 			layout: {
 				topStart: null,
 				topEnd: 'search',
@@ -135,6 +138,9 @@
                 { data: 'Winners Selected' },
                 { data: 'Jokers Won' }
 			],
+            createdRow: function (row, data, dataIndex) {
+                    $('td:eq(2)', row).append('<i class="fas fa-star"></i>');
+            },
 		});
 
 	</script>
