@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const WEB_APP_URL = "https://script.google.com/macros/s/AKfycby_H5B17lexqX1VVDKLM11CLeKhGn-RqlJIpyQ5KCNTv0HSWFm6xZ1ertKxp7IY4dv1/exec";
+  const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_DEPLOYED_WEBAPP_ID/exec";
 
   Promise.all([
-    fetch(WEB_APP_URL).then(r => r.json()),
+    fetch(WEB_APP_URL).then(r => r.json()),             // current Totals
     fetch(`${WEB_APP_URL}?sheet=2025`).then(r => r.json()) // last season
   ])
   .then(([currentData, lastSeasonData]) => {
