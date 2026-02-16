@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportsMaster Stats</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/standard.css" />
+  <link rel="stylesheet" href="assets/css/navigation.css" />
+  <link rel="stylesheet" href="assets/css/stats.css" />
+  <link rel="stylesheet" href="assets/css/core-styles.css" />
+  <style>
+    /* Top 3 player entries */
+    .top-players { margin-top: 8px; }
+    .top-player-entry { margin-bottom: 4px; font-weight: bold; }
+
+    /* Movement arrows */
+    .stat-movement {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 1.2rem;
+      vertical-align: middle;
+      transition: transform 0.5s ease;
+    }
+    .stat-movement.up { color: green; }
+    .stat-movement.down { color: red; }
+    .stat-movement.same { color: gray; }
+  </style>
+</head>
+
+<body>
+  <header id="cs-navigation">
+    <!-- Your existing navigation code -->
+  </header>
+
+  <section id="services-342">
+    <div class="cs-container">
+      <div class="cs-content">
+        <span class="cs-topper">Statistics</span>
+        <h2 class="cs-title">SportsMaster Historical Statistics</h2>
+        <div>
+          <p class="cs-text">
+            Before we charge confidently into another season of “this is my year,” let’s revisit the evidence.
+          </p>
+          <p class="cs-text">
+            The stats are in. They are verified and etched in digital stone. You can’t blame injuries. You can’t blame the umpires. And no, you can't blame Stephen Dank, no matter how much Thymosin beta-4 he shot you up with.
+          </p>
+          <p class="cs-text">
+            Below lies the SportsMaster historical statistics — a beautifully preserved record of dominance, delusion, and the occasional statistical miracle. Some of you built legacies. Some of you built character. Some of you built an impressive streak of almost getting it right.
+          </p>
+          <p class="cs-text">And some of you are Nathan.</p>
+          <p class="cs-text">
+            As always, the numbers don’t care about your feelings. Scroll responsibly.
+          </p>
+        </div>
+
+        <ul class="cs-card-group">
+          <div class="history-text">
+            *Note: All stats are accurate as of the end of the 2025 season. Any new records set in the current season will be added to this page at the end of the season.
+          </div>
+
+          <!-- Card Template: just copy & edit for each stat -->
+          <!-- Total Points -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Total Points <span id="moveTopPoints" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topPointsContainer">
+                <div id="topPoints1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topPoints2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topPoints3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                A beautiful, brutal summary of every bold call and catastrophic brain fade.
+              </p>
+            </a>
+          </li>
+
+          <!-- Correct Selections -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Correct Selections <span id="moveTopCorrect" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topCorrectContainer">
+                <div id="topCorrect1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topCorrect2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topCorrect3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                Proof that, at least once in your life, you were statistically competent.
+              </p>
+            </a>
+          </li>
+
+          <!-- Jokers Won -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Jokers Won <span id="moveTopJokers" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topJokersContainer">
+                <div id="topJokers1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topJokers2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topJokers3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                A running tally of every time you said, “Lock it in,” just before the universe politely disagreed.
+              </p>
+            </a>
+          </li>
+
+          <!-- Points From Jokers -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Points From Jokers <span id="moveTopJokersPoints" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topJokersPointsContainer">
+                <div id="topJokersPoints1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topJokersPoints2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topJokersPoints3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                Proof that sometimes recklessness pays off… and sometimes you just accidentally guessed correctly with extreme confidence.
+              </p>
+            </a>
+          </li>
+
+          <!-- Average Points Per Season -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Average Points Per Season <span id="moveTopAvg" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topAvgContainer">
+                <div id="topAvg1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topAvg2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topAvg3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                Stripping away one-hit wonders and exposing whether you’re a consistent tactician… or just riding that one miracle year like it’s folklore.
+              </p>
+            </a>
+          </li>
+
+          <!-- 40 Pointers -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">40 Pointers <span id="moveTop40" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="top40Container">
+                <div id="top401" class="top-player-entry">Player 1 — 0</div>
+                <div id="top402" class="top-player-entry">Player 2 — 0</div>
+                <div id="top403" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                The solid citizen stat. Not flashy, not legendary — just steady little reminders that you occasionally knew what you were doing.
+              </p>
+            </a>
+          </li>
+
+          <!-- 80 Pointers -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">80 Pointers <span id="moveTop80" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="top80Container">
+                <div id="top801" class="top-player-entry">Player 1 — 0</div>
+                <div id="top802" class="top-player-entry">Player 2 — 0</div>
+                <div id="top803" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                The mythical beast. Rare, glorious, and immediately brought up in every future argument. One of these buys you credibility. Two makes you insufferable.
+              </p>
+            </a>
+          </li>
+
+          <!-- Seasons Entered -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Seasons Entered <span id="moveTopSeasons" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topSeasonsContainer">
+                <div id="topSeasons1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topSeasons2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topSeasons3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                Some call it dedication. Others call it the ultimate form of self-flagellation — a proud, public display of being a glutton for punishment. Either way, the commitment is admirable.
+              </p>
+            </a>
+          </li>
+
+          <!-- Miscellaneous -->
+          <li class="cs-item">
+            <a href="" class="cs-link">
+              <h3 class="cs-h3">Miscellaneous <span id="moveTopMisc" class="stat-movement">➡️</span></h3>
+              <div class="top-players" id="topMiscContainer">
+                <div id="topMisc1" class="top-player-entry">Player 1 — 0</div>
+                <div id="topMisc2" class="top-player-entry">Player 2 — 0</div>
+                <div id="topMisc3" class="top-player-entry">Player 3 — 0</div>
+              </div>
+              <p class="cs-item-text">
+                The Ocho level of irrelevant statistics. The participation ribbon. The coaches award. If you end up on here, it's because you're not in the record books, you're in the appendix.
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <script src="statsPageStats.js"></script>
+</body>
+</html>
