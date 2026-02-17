@@ -129,7 +129,9 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = "none";
 };
 
-// Populate the table
+// ========================
+// Populate the table with cascading animation
+// ========================
 function populateLeaderboardTable(statField, currentData, lastData) {
   modalTableBody.innerHTML = "";
   const sorted = [...currentData].sort(
@@ -144,12 +146,17 @@ function populateLeaderboardTable(statField, currentData, lastData) {
       value = Number.isInteger(value) ? value : value.toFixed(1);
     }
 
-    // Determine movement for this player
     let movement = "➡️";
-    const lastIndex = lastData.findIndex((p) => p.SportsMaster === player.SportsMaster);
+    const lastIndex = lastData.findIndex(
+      (p) => p.SportsMaster === player.SportsMaster
+    );
     if (lastIndex >= 0) {
-      if (Number(player[statField] || 0) > Number(lastData[lastIndex][statField] || 0)) movement = "🔼";
-      else if (Number(player[statField] || 0) < Number(lastData[lastIndex][statField] || 0)) movement = "🔽";
+      if (Number(player[statField] || 0) > Number(lastData[lastIndex][statField] || 0))
+        movement = "🔼";
+      else if (
+        Number(player[statField] || 0) < Number(lastData[lastIndex][statField] || 0)
+      )
+        movement = "🔽";
     }
 
     const row = document.createElement("tr");
@@ -159,8 +166,14 @@ function populateLeaderboardTable(statField, currentData, lastData) {
       <td>${value}</td>
       <td>${movement}</td>
     `;
+    row.style.transitionDelay = `${index * 50}ms`; // cascading effect
     modalTableBody.appendChild(row);
   });
+
+  // Trigger cascade animation
+  setTimeout(() => {
+    document.getElementById("leaderboardTable").classList.add("show-rows");
+  }, 50);
 }
 
 // ========================
