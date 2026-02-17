@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fetch current totals and last season
   Promise.all([
     fetch(WEB_APP_URL).then((r) => r.json()),
-    fetch(`${WEB_APP_URL}?sheet=2025`).then((r) => r.json()), // last season
+    fetch(`${WEB_APP_URL}?sheet=2025`).then((r) => r.json()),
   ])
     .then(([currentData, lastSeasonData]) => {
       const stats = (currentData.totals || []).slice(1);
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((err) => console.error("Error fetching stats:", err));
 });
 
-// Update top 3 players with movement arrows and animations
+// Update top 3 players with animated arrows, counting numbers, cascading
 function updateTop3Stats(currentData, lastData, statField, prefix) {
   if (!currentData || !currentData.length) return;
 
@@ -50,7 +50,7 @@ function updateTop3Stats(currentData, lastData, statField, prefix) {
     if (!el) return;
 
     let value = Number(player[statField] || 0);
-    value = Number.isInteger(value) ? value : value.toFixed(1);
+    const displayValue = Number.isInteger(value) ? value : value.toFixed(1);
 
     // Determine movement arrow and color
     let arrow = "➡️";
@@ -70,19 +70,42 @@ function updateTop3Stats(currentData, lastData, statField, prefix) {
       colorClass = "down";
     }
 
-    el.textContent = `${player.SportsMaster} — ${value} ${arrow}`;
+    // Set initial HTML with spans for number and arrow
+    el.innerHTML = `${player.SportsMaster} — <span class="value">0</span> <span class="arrow ${colorClass} slide-pop">${arrow}</span>`;
 
-    // Remove previous classes and add new class
-    el.classList.remove("up", "down", "same", "new", "animate-arrow");
+    // Cascade delay based on index
+    const delay = index * 200; // 0ms, 200ms, 400ms
 
-    el.classList.add(colorClass, "animate-arrow");
-
-    // Force reflow to restart animation
-    void el.offsetWidth;
-
-    // Remove animation class after animation completes (optional)
+    // Animate arrow with delay
+    const arrowEl = el.querySelector(".arrow");
     setTimeout(() => {
-      el.classList.remove("animate-arrow");
-    }, 500); // matches CSS animation duration
+      arrowEl.classList.add("slide-pop");
+      setTimeout(() => arrowEl.classList.remove("slide-pop"), 500);
+    }, delay);
+
+    // Animate number with delay
+    const valueEl = el.querySelector(".value");
+    setTimeout(() => {
+      animateNumber(valueEl, 0, Number(displayValue), 800);
+    }, delay);
   });
+}
+
+// Animate number count up
+function animateNumber(el, start, end, duration) {
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const currentValue = start + (end - start) * progress;
+    el.textContent = Number.isInteger(end)
+      ? Math.floor(currentValue)
+      : currentValue.toFixed(1);
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  requestAnimationFrame(update);
 }
