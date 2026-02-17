@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
     fetch(`${WEB_APP_URL}?sheet=2025`).then(r => r.json()) // last season
   ])
   .then(([currentData, lastSeasonData]) => {
-    const stats = currentData.totals;
-    const last = lastSeasonData.totals;
+    const stats = currentData.totals.slice(1);
+    const last = lastSeasonData.totals.slice(1);
 
     console.log("Current stats:", stats);
     console.log("Last season stats:", last);
