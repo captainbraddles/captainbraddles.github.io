@@ -24,6 +24,11 @@
 .stat-movement.down { color: red; }
 .stat-movement.same { color: gray; }
 
+.up { color: green; }
+.down { color: red; }
+.same { color: gray; }
+.new { color: blue; }
+
 
 /* Fade + slide-in animation for top images */
 .top-player-animate {

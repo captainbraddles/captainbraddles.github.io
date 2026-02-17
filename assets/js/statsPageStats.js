@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((err) => console.error("Error fetching stats:", err));
 });
 
-// Update the top 3 players for a given stat, including movement arrows
+// Update the top 3 players for a given stat, including colored movement arrows
 function updateTop3Stats(currentData, lastData, statField, prefix) {
   if (!currentData || !currentData.length) return;
 
@@ -50,23 +50,31 @@ function updateTop3Stats(currentData, lastData, statField, prefix) {
     if (!el) return;
 
     let value = Number(player[statField] || 0);
-    // Format floats: 1 decimal for averages/points, integers for counts
     value = Number.isInteger(value) ? value : value.toFixed(1);
 
-    // Determine movement arrow
-    let arrow = "➡️"; // default: unchanged
+    // Determine movement arrow and color
+    let arrow = "➡️"; // default
+    let colorClass = "same"; // default gray
+
     const lastIndex = sortedLast.findIndex(
       (p) => p.SportsMaster === player.SportsMaster
     );
 
     if (lastIndex === -1) {
-      arrow = "🆕"; // new player
+      arrow = "🆕";
+      colorClass = "new"; // blue
     } else if (lastIndex > index) {
-      arrow = "🔼"; // moved up
+      arrow = "🔼";
+      colorClass = "up"; // green
     } else if (lastIndex < index) {
-      arrow = "🔽"; // moved down
+      arrow = "🔽";
+      colorClass = "down"; // red
     }
 
     el.textContent = `${player.SportsMaster} — ${value} ${arrow}`;
+
+    // Remove previous classes and add the new one
+    el.classList.remove("up", "down", "same", "new");
+    el.classList.add(colorClass);
   });
 }
