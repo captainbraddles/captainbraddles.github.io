@@ -25,6 +25,62 @@
     .stat-movement.up { color: green; }
     .stat-movement.down { color: red; }
     .stat-movement.same { color: gray; }
+
+    /* Modal styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1000; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6); 
+      animation: fadeIn 0.3s;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 800px;
+      position: relative;
+      animation: slideDown 0.3s;
+    }
+
+    .close {
+      color: #aaa;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover { color: #000; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    table th {
+      cursor: pointer;
+      background-color: #f2f2f2;
+    }
+
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes slideDown { from {transform:translateY(-20px);} to {transform:translateY(0);} }
   </style>
 </head>
 
@@ -59,7 +115,6 @@
             *Note: All stats are accurate as of the end of the 2025 season. Any new records set in the current season will be added to this page at the end of the season.
           </div>
 
-          <!-- Card Template: just copy & edit for each stat -->
           <!-- Total Points -->
           <li class="cs-item">
             <a href="" class="cs-link">
@@ -179,25 +234,30 @@
               </div>
             </a>
           </li>
-
-          <!-- Miscellaneous -->
-          <li class="cs-item">
-            <a href="" class="cs-link">
-              <h3 class="cs-h3">Miscellaneous <span id="moveTopMisc" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                The Ocho level of irrelevant statistics. The participation ribbon. The coaches award. If you end up on here, it's because you're not in the record books, you're in the appendix.
-              </p>
-              <div class="top-players" id="topMiscContainer">
-                <!--<div id="topMisc1" class="top-player-entry"></div>
-                <div id="topMisc2" class="top-player-entry"></div>
-                <div id="topMisc3" class="top-player-entry"></div>-->
-              </div>
-            </a>
-          </li>
         </ul>
       </div>
     </div>
   </section>
+
+  <!-- Full Leaderboard Modal -->
+  <div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <input type="text" id="searchInput" placeholder="Filter by player name..." style="margin-bottom:10px; width:100%; padding:5px;">
+      <table id="leaderboardTable">
+        <thead>
+          <tr>
+            <th data-column="rank" data-order="asc">Rank</th>
+            <th data-column="player" data-order="asc">Player</th>
+            <th data-column="value" data-order="asc">Value</th>
+            <th>Movement</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
 
   <script src="assets/js/statsPageStats.js"></script>
 </body>
