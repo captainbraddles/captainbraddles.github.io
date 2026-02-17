@@ -9,24 +9,163 @@
   <link rel="stylesheet" href="assets/css/navigation.css" />
   <link rel="stylesheet" href="assets/css/stats.css" />
   <link rel="stylesheet" href="assets/css/core-styles.css" />
-  <style>
+ <style>
+    /* Modern Card Styles */
+    .cs-card-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+    }
 
-    
-    /* Top 3 player entries */
-    .top-players { margin-top: 8px; }
-    .top-player-entry { margin-bottom: 4px; font-weight: bold; }
+    .cs-item {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
 
-    /* Movement arrows */
+    .cs-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    /* Remove default link styles */
+    .cs-item a.cs-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 20px;
+    }
+
+    /* Card Title */
+    .cs-h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Card Text */
+    .cs-item-text {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    /* Top Players List */
+    .top-players {
+      margin-top: 8px;
+    }
+
+    .top-player-entry {
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    /* Top 3 highlight colors */
+    .top-player-entry:first-child { background: #fff8dc; } /* Gold */
+    .top-player-entry:nth-child(2) { background: #f0f0f0; } /* Silver-ish */
+    .top-player-entry:nth-child(3) { background: #fdebd0; } /* Bronze-ish */
+
+    /* Player Name & Value */
+    .top-player-entry span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Movement Arrows */
     .stat-movement {
       display: inline-block;
       margin-left: 10px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       vertical-align: middle;
-      transition: transform 0.5s ease;
+      transition: transform 0.3s ease;
     }
     .stat-movement.up { color: green; }
     .stat-movement.down { color: red; }
     .stat-movement.same { color: gray; }
+
+    /* Modal Background */
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000; 
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5); 
+    }
+
+    /* Modal Content Box */
+    .modal-content {
+      background-color: #f9f9f9;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.3s ease;
+    }
+
+    /* Show/Hide Animations */
+    .modal-content.show { opacity:1; transform:translateY(0); }
+    .modal-content.hide { opacity:0; transform:translateY(50px); }
+
+    /* Close Button */
+    .modal .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .modal .close:hover, .modal .close:focus { color: black; }
+
+    /* Search Input */
+    #searchInput {
+      width: 100%;
+      padding: 8px 12px;
+      margin: 10px 0 20px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    /* Leaderboard Table */
+    #leaderboardTable {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    #leaderboardTable th, #leaderboardTable td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Top 3 Highlight Colors */
+    tr.gold { background-color: #ffd7003d; }
+    tr.silver { background-color: #c0c0c03d; }
+    tr.bronze { background-color: #cd7f323d; }
+
+    /* Cascade animation for rows */
+    #leaderboardTable tbody tr { opacity:0; transform:translateY(20px); transition: all 0.3s ease; }
+    #leaderboardTable tbody tr.show { opacity:1; transform:translateY(0); }
   </style>
 </head>
 
@@ -115,167 +254,106 @@
     <!-- Your existing navigation code -->
   </header>
 
-  <section id="services-342">
+   <section id="services-342">
     <div class="cs-container">
       <div class="cs-content">
         <span class="cs-topper">Statistics</span>
         <h2 class="cs-title">SportsMaster Historical Statistics</h2>
-        <div>
-          <p class="cs-text">
-            The stats are in, verified and etched in digital stone. You can’t blame injuries. You can’t blame the umpires. And you can't blame Stephen Dank, no matter how much Thymosin beta-4 he shot you up with.
-          </p>
-          <p class="cs-text">
-            Below lies the SportsMaster historical statistics — a beautifully preserved record of dominance, delusion, and the occasional statistical miracle. Some of you built legacies. Some of you built character. Some of you built an impressive streak of almost getting it right.
-          </p>
-          <p class="cs-text">And some of you are Nathan.</p>
-          <p class="cs-text">
-            As always, the numbers don’t care about your feelings.
-          </p>
-          <p class="cs-text">
-            Scroll responsibly.
-          </p>
-        </div>
+
+        <p class="cs-text">
+          The stats are in, verified and etched in digital stone. You can’t blame injuries. You can’t blame the umpires. And you can't blame Stephen Dank, no matter how much Thymosin beta-4 he shot you up with.
+        </p>
+        <p class="cs-text">
+          Below lies the SportsMaster historical statistics — a beautifully preserved record of dominance, delusion, and the occasional statistical miracle.
+        </p>
+        <p class="cs-text">And some of you are Nathan.</p>
+        <p class="cs-text">As always, the numbers don’t care about your feelings. Scroll responsibly.</p>
 
         <ul class="cs-card-group">
           <div class="history-text">
             *Note: All stats are accurate as of the end of the 2025 season. Any new records set in the current season will be added to this page at the end of the season.
           </div>
 
-          <!-- Card Template: data-stat attribute added for modal -->
-          <!-- Total Points -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Points">
-              <h3 class="cs-h3">Total Points <span id="moveTopPoints" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                A beautiful, brutal summary of every bold call and catastrophic brain fade.
-              </p>
-              <div class="top-players" id="topPointsContainer">
-                <div id="topPoints1" class="top-player-entry"></div>
-                <div id="topPoints2" class="top-player-entry"></div>
-                <div id="topPoints3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <!-- Cards with data-stat attributes -->
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Points">
+            <h3 class="cs-h3">Total Points <span id="moveTopPoints" class="stat-movement"></span></h3>
+            <p class="cs-item-text">A beautiful, brutal summary of every bold call and catastrophic brain fade.</p>
+            <div class="top-players" id="topPointsContainer">
+              <div id="topPoints1" class="top-player-entry"></div>
+              <div id="topPoints2" class="top-player-entry"></div>
+              <div id="topPoints3" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- Correct Selections -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Correct Selections">
-              <h3 class="cs-h3">Correct Selections <span id="moveTopCorrect" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                Proof that, at least once in your life, you were statistically competent.
-              </p>
-              <div class="top-players" id="topCorrectContainer">
-                <div id="topCorrect1" class="top-player-entry"></div>
-                <div id="topCorrect2" class="top-player-entry"></div>
-                <div id="topCorrect3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Correct Selections">
+            <h3 class="cs-h3">Correct Selections <span id="moveTopCorrect" class="stat-movement"></span></h3>
+            <p class="cs-item-text">Proof that, at least once in your life, you were statistically competent.</p>
+            <div class="top-players" id="topCorrectContainer">
+              <div id="topCorrect1" class="top-player-entry"></div>
+              <div id="topCorrect2" class="top-player-entry"></div>
+              <div id="topCorrect3" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- Jokers Won -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Jokers Won">
-              <h3 class="cs-h3">Jokers Won <span id="moveTopJokers" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                A running tally of every time you said, “Lock it in,” just before the universe politely disagreed.
-              </p>
-              <div class="top-players" id="topJokersContainer">
-                <div id="topJokers1" class="top-player-entry"></div>
-                <div id="topJokers2" class="top-player-entry"></div>
-                <div id="topJokers3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Jokers Won">
+            <h3 class="cs-h3">Jokers Won <span id="moveTopJokers" class="stat-movement"></span></h3>
+            <p class="cs-item-text">A running tally of every time you said, “Lock it in,” just before the universe politely disagreed.</p>
+            <div class="top-players" id="topJokersContainer">
+              <div id="topJokers1" class="top-player-entry"></div>
+              <div id="topJokers2" class="top-player-entry"></div>
+              <div id="topJokers3" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- Points From Jokers -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Points from Jokers">
-              <h3 class="cs-h3">Points From Jokers <span id="moveTopJokersPoints" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                Proof that sometimes recklessness pays off… and sometimes you just accidentally guessed correctly with extreme confidence.
-              </p>
-              <div class="top-players" id="topJokersPointsContainer">
-                <div id="topJokersPoints1" class="top-player-entry"></div>
-                <div id="topJokersPoints2" class="top-player-entry"></div>
-                <div id="topJokersPoints3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Points from Jokers">
+            <h3 class="cs-h3">Points From Jokers <span id="moveTopJokersPoints" class="stat-movement"></span></h3>
+            <p class="cs-item-text">Proof that sometimes recklessness pays off… and sometimes you just accidentally guessed correctly with extreme confidence.</p>
+            <div class="top-players" id="topJokersPointsContainer">
+              <div id="topJokersPoints1" class="top-player-entry"></div>
+              <div id="topJokersPoints2" class="top-player-entry"></div>
+              <div id="topJokersPoints3" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- Average Points Per Season -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Average points per season">
-              <h3 class="cs-h3">Average Points Per Season <span id="moveTopAvg" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                Stripping away one-hit wonders and exposing whether you’re a consistent tactician… or just riding that one miracle year like it’s folklore.
-              </p>
-              <div class="top-players" id="topAvgContainer">
-                <div id="topAvg1" class="top-player-entry"></div>
-                <div id="topAvg2" class="top-player-entry"></div>
-                <div id="topAvg3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Average points per season">
+            <h3 class="cs-h3">Average Points Per Season <span id="moveTopAvg" class="stat-movement"></span></h3>
+            <p class="cs-item-text">Stripping away one-hit wonders and exposing whether you’re a consistent tactician… or just riding that one miracle year like it’s folklore.</p>
+            <div class="top-players" id="topAvgContainer">
+              <div id="topAvg1" class="top-player-entry"></div>
+              <div id="topAvg2" class="top-player-entry"></div>
+              <div id="topAvg3" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- 40 Pointers -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="40 Pointers">
-              <h3 class="cs-h3">40 Pointers <span id="moveTop40" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                The solid citizen stat. Not flashy, not legendary — just steady little reminders that you occasionally knew what you were doing.
-              </p>
-              <div class="top-players" id="top40Container">
-                <div id="top401" class="top-player-entry"></div>
-                <div id="top402" class="top-player-entry"></div>
-                <div id="top403" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="40 Pointers">
+            <h3 class="cs-h3">40 Pointers <span id="moveTop40" class="stat-movement"></span></h3>
+            <p class="cs-item-text">The solid citizen stat. Not flashy, not legendary — just steady little reminders that you occasionally knew what you were doing.</p>
+            <div class="top-players" id="top40Container">
+              <div id="top401" class="top-player-entry"></div>
+              <div id="top402" class="top-player-entry"></div>
+              <div id="top403" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- 80 Pointers -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="80 Pointers">
-              <h3 class="cs-h3">80 Pointers <span id="moveTop80" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                The mythical beast. Rare, glorious, and immediately brought up in every future argument. One of these buys you credibility. Two makes you insufferable.
-              </p>
-              <div class="top-players" id="top80Container">
-                <div id="top801" class="top-player-entry"></div>
-                <div id="top802" class="top-player-entry"></div>
-                <div id="top803" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="80 Pointers">
+            <h3 class="cs-h3">80 Pointers <span id="moveTop80" class="stat-movement"></span></h3>
+            <p class="cs-item-text">The mythical beast. Rare, glorious, and immediately brought up in every future argument. One of these buys you credibility. Two makes you insufferable.</p>
+            <div class="top-players" id="top80Container">
+              <div id="top801" class="top-player-entry"></div>
+              <div id="top802" class="top-player-entry"></div>
+              <div id="top803" class="top-player-entry"></div>
+            </div>
+          </a></li>
 
-          <!-- Seasons Entered -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Seasons Entered">
-              <h3 class="cs-h3">Seasons Entered <span id="moveTopSeasons" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                Some call it dedication. Others call it the ultimate form of self-flagellation — a proud, public display of being a glutton for punishment. Either way, the commitment is admirable.
-              </p>
-              <div class="top-players" id="topSeasonsContainer">
-                <div id="topSeasons1" class="top-player-entry"></div>
-                <div id="topSeasons2" class="top-player-entry"></div>
-                <div id="topSeasons3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
-
-          <!-- Misc -->
-          <li class="cs-item">
-            <a href="#" class="cs-link" data-stat="Seasons Entered">
-              <h3 class="cs-h3">Seasons Entered <span id="moveTopSeasons" class="stat-movement"></span></h3>
-              <p class="cs-item-text">
-                Ocho levels of irrelevant statistics. The participation ribbon, the coaches award. If you end up on here, it's because you're not in the record books, you're in the appendix.
-              </p>
-              <div class="top-players" id="topSeasonsContainer">
-                <div id="topSeasons1" class="top-player-entry"></div>
-                <div id="topSeasons2" class="top-player-entry"></div>
-                <div id="topSeasons3" class="top-player-entry"></div>
-              </div>
-            </a>
-          </li>
+          <li class="cs-item"><a href="#" class="cs-link" data-stat="Seasons Entered">
+            <h3 class="cs-h3">Seasons Entered <span id="moveTopSeasons" class="stat-movement"></span></h3>
+            <p class="cs-item-text">Some call it dedication. Others call it the ultimate form of self-flagellation — a proud, public display of being a glutton for punishment. Either way, the commitment is admirable.</p>
+            <div class="top-players" id="topSeasonsContainer">
+              <div id="topSeasons1" class="top-player-entry"></div>
+              <div id="topSeasons2" class="top-player-entry"></div>
+              <div id="topSeasons3" class="top-player-entry"></div>
+            </div>
+          </a></li>
         </ul>
       </div>
     </div>
@@ -287,7 +365,6 @@
       <span class="close">&times;</span>
       <h2 id="modalTitle"></h2>
       <input type="text" id="searchInput" placeholder="Search player..." />
-
       <table id="leaderboardTable">
         <thead>
           <tr>
@@ -301,79 +378,6 @@
       </table>
     </div>
   </div>
-
-  <style>
-    /* Modal Background */
-    .modal {
-      display: none; 
-      position: fixed;
-      z-index: 1000; 
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.5); 
-    }
-
-    /* Modal Content Box */
-    .modal-content {
-      background-color: #f9f9f9;
-      margin: 5% auto;
-      padding: 20px;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 800px;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.3s ease;
-    }
-
-    /* Show/Hide Animations */
-    .modal-content.show { opacity:1; transform:translateY(0); }
-    .modal-content.hide { opacity:0; transform:translateY(50px); }
-
-    /* Close Button */
-    .modal .close {
-      color: #aaa;
-      float: right;
-      font-size: 28px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .modal .close:hover, .modal .close:focus { color: black; }
-
-    /* Search Input */
-    #searchInput {
-      width: 100%;
-      padding: 8px 12px;
-      margin: 10px 0 20px 0;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    /* Leaderboard Table */
-    #leaderboardTable {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 0.95rem;
-    }
-    #leaderboardTable th, #leaderboardTable td {
-      padding: 8px 12px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    /* Top 3 Highlight Colors */
-    tr.gold { background-color: #ffd7003d; }
-    tr.silver { background-color: #c0c0c03d; }
-    tr.bronze { background-color: #cd7f323d; }
-
-    /* Cascade animation for rows */
-    #leaderboardTable tbody tr { opacity:0; transform:translateY(20px); transition: all 0.3s ease; }
-    #leaderboardTable tbody tr.show { opacity:1; transform:translateY(0); }
-  </style>
 
   <script src="assets/js/statsPageStats.js"></script>
 </body>
