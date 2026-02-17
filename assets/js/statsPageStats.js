@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fetch current totals and last season
   Promise.all([
     fetch(WEB_APP_URL).then((r) => r.json()),
-    fetch(`${WEB_APP_URL}?sheet=2025`).then((r) => r.json()), // last season
+    fetch(`${WEB_APP_URL}?sheet=2024`).then((r) => r.json()), // last season
   ])
     .then(([currentData, lastSeasonData]) => {
       const stats = currentData.totals.slice(1); // skip header row
