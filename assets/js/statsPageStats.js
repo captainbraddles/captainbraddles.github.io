@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((err) => console.error("Error fetching stats:", err));
 });
 
-// Update the top 3 players for a given stat, including colored movement arrows
+// Update top 3 players with movement arrows and animations
 function updateTop3Stats(currentData, lastData, statField, prefix) {
   if (!currentData || !currentData.length) return;
 
@@ -53,28 +53,36 @@ function updateTop3Stats(currentData, lastData, statField, prefix) {
     value = Number.isInteger(value) ? value : value.toFixed(1);
 
     // Determine movement arrow and color
-    let arrow = "➡️"; // default
-    let colorClass = "same"; // default gray
-
+    let arrow = "➡️";
+    let colorClass = "same";
     const lastIndex = sortedLast.findIndex(
       (p) => p.SportsMaster === player.SportsMaster
     );
 
     if (lastIndex === -1) {
       arrow = "🆕";
-      colorClass = "new"; // blue
+      colorClass = "new";
     } else if (lastIndex > index) {
       arrow = "🔼";
-      colorClass = "up"; // green
+      colorClass = "up";
     } else if (lastIndex < index) {
       arrow = "🔽";
-      colorClass = "down"; // red
+      colorClass = "down";
     }
 
     el.textContent = `${player.SportsMaster} — ${value} ${arrow}`;
 
-    // Remove previous classes and add the new one
-    el.classList.remove("up", "down", "same", "new");
-    el.classList.add(colorClass);
+    // Remove previous classes and add new class
+    el.classList.remove("up", "down", "same", "new", "animate-arrow");
+
+    el.classList.add(colorClass, "animate-arrow");
+
+    // Force reflow to restart animation
+    void el.offsetWidth;
+
+    // Remove animation class after animation completes (optional)
+    setTimeout(() => {
+      el.classList.remove("animate-arrow");
+    }, 500); // matches CSS animation duration
   });
 }
