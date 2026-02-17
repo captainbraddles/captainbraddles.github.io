@@ -21,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
       ["Average points per season", "topAvg", "moveTopAvg"],
       ["40 Pointers", "top40", "moveTop40"],
       ["80 Pointers", "top80", "moveTop80"],
-      ["Seasons Entered", "topSeasons", "moveTopSeasons"],
-      ["Miscellaneous", "topMisc", "moveTopMisc"]
+      ["Seasons Entered", "topSeasons", "moveTopSeasons"]
     ];
 
     statPairs.forEach(([field, prefix, moveId]) => {
