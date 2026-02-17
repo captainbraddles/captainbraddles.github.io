@@ -48,7 +48,7 @@
 @media (max-width: 768px) {
   .cs-card-group { flex-direction: column; }
   .cs-item { flex: 1 1 auto; }
-  .modal-content { width: 95%; padding-bottom: 10px; }
+  .modal-content { width: 95%; padding-bottom: 10px; margin-top: 5rem;}
   .modal-body table, .modal-body th, .modal-body td { font-size: 0.9rem; }
 }
 
@@ -326,7 +326,7 @@ tr.bronze { background-color: #cd7f323d; }
 }
 .modal-content { 
     max-width: 600px; 
-    margin: 0 auto; 
+    margin: 5rem auto; 
     background: #fff; 
     border-radius: 12px; 
     overflow: hidden; 
