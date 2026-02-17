@@ -26,76 +26,59 @@
     .stat-movement.down { color: red; }
     .stat-movement.same { color: gray; }
 
-    /* Modal Overlay & Content */
-    .modal {
+    /* Make cards clickable */
+    .cs-item { cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .cs-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Modal styling */
+    #leaderboardModal {
       display: none;
       position: fixed;
-      z-index: 9999;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
-      animation: fadeIn 0.3s ease;
+      background-color: rgba(0,0,0,0.7);
     }
-    .modal-content {
+    #leaderboardModal .modal-content {
       background-color: #fff;
-      margin: 50px auto;
+      margin: 5% auto;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
+      max-width: 700px;
       width: 90%;
-      max-width: 800px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      animation: slideDown 0.4s ease;
       position: relative;
     }
-    .close {
+    #leaderboardModal .close {
       position: absolute;
-      top: 12px;
-      right: 16px;
-      font-size: 1.5rem;
+      top: 10px; right: 15px;
+      font-size: 28px;
       font-weight: bold;
       cursor: pointer;
     }
-
-    /* Leaderboard Table */
-    #leaderboardTable {
+    #leaderboardModal table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 10px;
     }
-    #leaderboardTable th,
-    #leaderboardTable td {
-      border: 1px solid #ddd;
+    #leaderboardModal th, #leaderboardModal td {
       padding: 8px;
-      text-align: center;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
     }
-    #leaderboardTable th {
-      cursor: pointer;
-      background-color: #f0f0f0;
-    }
-    #leaderboardTable tbody tr {
+    #leaderboardModal tr {
       opacity: 0;
-      transform: translateY(15px);
-      transition: all 0.3s ease;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
     }
-    #leaderboardTable.show-rows tbody tr {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Search input */
+    #leaderboardModal tr.show { opacity: 1; transform: translateY(0); }
     #searchInput {
       width: 100%;
-      padding: 8px;
+      padding: 6px 10px;
       margin-bottom: 10px;
-      font-size: 1rem;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -133,7 +116,7 @@
 
           <!-- Card Template: Total Points -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Points">
               <h3 class="cs-h3">Total Points <span id="moveTopPoints" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 A beautiful, brutal summary of every bold call and catastrophic brain fade.
@@ -148,7 +131,7 @@
 
           <!-- Correct Selections -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Correct Selections">
               <h3 class="cs-h3">Correct Selections <span id="moveTopCorrect" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 Proof that, at least once in your life, you were statistically competent.
@@ -163,7 +146,7 @@
 
           <!-- Jokers Won -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Jokers Won">
               <h3 class="cs-h3">Jokers Won <span id="moveTopJokers" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 A running tally of every time you said, “Lock it in,” just before the universe politely disagreed.
@@ -178,7 +161,7 @@
 
           <!-- Points From Jokers -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Points from Jokers">
               <h3 class="cs-h3">Points From Jokers <span id="moveTopJokersPoints" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 Proof that sometimes recklessness pays off… and sometimes you just accidentally guessed correctly with extreme confidence.
@@ -193,7 +176,7 @@
 
           <!-- Average Points Per Season -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Average points per season">
               <h3 class="cs-h3">Average Points Per Season <span id="moveTopAvg" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 Stripping away one-hit wonders and exposing whether you’re a consistent tactician… or just riding that one miracle year like it’s folklore.
@@ -208,7 +191,7 @@
 
           <!-- 40 Pointers -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="40 Pointers">
               <h3 class="cs-h3">40 Pointers <span id="moveTop40" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 The solid citizen stat. Not flashy, not legendary — just steady little reminders that you occasionally knew what you were doing.
@@ -223,7 +206,7 @@
 
           <!-- 80 Pointers -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="80 Pointers">
               <h3 class="cs-h3">80 Pointers <span id="moveTop80" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 The mythical beast. Rare, glorious, and immediately brought up in every future argument. One of these buys you credibility. Two makes you insufferable.
@@ -238,7 +221,7 @@
 
           <!-- Seasons Entered -->
           <li class="cs-item">
-            <a href="" class="cs-link">
+            <a href="#" class="cs-link" data-stat="Seasons Entered">
               <h3 class="cs-h3">Seasons Entered <span id="moveTopSeasons" class="stat-movement"></span></h3>
               <p class="cs-item-text">
                 Some call it dedication. Others call it the ultimate form of self-flagellation — a proud, public display of being a glutton for punishment. Either way, the commitment is admirable.
@@ -255,21 +238,19 @@
     </div>
   </section>
 
-  <!-- ========================= -->
-  <!-- Modal for Full Leaderboard -->
-  <!-- ========================= -->
-  <div id="leaderboardModal" class="modal">
+  <!-- Leaderboard Modal -->
+  <div id="leaderboardModal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2 id="modalTitle">Leaderboard</h2>
+      <h3 id="modalTitle">Leaderboard</h3>
       <input type="text" id="searchInput" placeholder="Search player..." />
       <table id="leaderboardTable">
         <thead>
           <tr>
-            <th data-column="rank">#</th>
-            <th data-column="player">Player</th>
-            <th data-column="value">Value</th>
-            <th>Movement</th>
+            <th>#</th>
+            <th>Player</th>
+            <th>Value</th>
+            <th>Change</th>
           </tr>
         </thead>
         <tbody></tbody>

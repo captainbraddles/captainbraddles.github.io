@@ -81,6 +81,19 @@
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
+#leaderboardTable tbody tr {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+#leaderboardTable tbody tr.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+tr.gold { background-color: #ffd70033; }   /* Gold for 1st */
+tr.silver { background-color: #c0c0ff33; } /* Silver for 2nd */
+tr.bronze { background-color: #cd7f3233; } /* Bronze for 3rd */
 
 
 
