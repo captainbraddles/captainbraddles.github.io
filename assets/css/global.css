@@ -59,4 +59,8 @@ body {
     margin: 0;
     color: var(--bodyTextColor);
 }
+
+.cs-content {
+    margin-top: 10rem;
+}
                             
