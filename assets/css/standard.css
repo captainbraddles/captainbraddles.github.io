@@ -28,6 +28,7 @@
   }
   #hero-2335 .cs-content {
     /* set text align to left if content needs to be left aligned */
+    margin-top: 10rem;
     text-align: left;
     width: 100%;
     max-width: 39.375rem;
