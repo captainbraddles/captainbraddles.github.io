@@ -28,7 +28,7 @@
   }
   #hero-2335 .cs-content {
     /* set text align to left if content needs to be left aligned */
-    margin-top: 10rem;
+    margin-top: 30rem;
     text-align: left;
     width: 100%;
     max-width: 39.375rem;
@@ -188,7 +188,7 @@
     padding: 5rem 2rem;
     box-sizing: border-box;
     align-items: flex-start;
-    margin-top: 10rem;
+    margin-top: 30rem;
   }
   #hero-2335 .cs-overlay {
     width: 100vw;
@@ -223,6 +223,7 @@
     width: 80%;
     max-width: 62.5rem;
     padding-left: 0;
+    margin-top: 10rem;
   }
   #hero-2335 .cs-graphic {
     width: 186.375rem;
