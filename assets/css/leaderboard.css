@@ -170,3 +170,45 @@
         font-size: 1.1em;  /* adjust as needed */
         font-weight: 600;  /* optional: make bolder */
     }
+
+    /* Events dropdown */
+.cs-dropdown {
+    position: relative;
+}
+
+/* Hide dropdown by default */
+.cs-dropdown .cs-drop-ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 120px;
+    margin: 0;
+    padding: 10px 0;
+    list-style: none;
+    background: #fff;
+    z-index: 1000;
+}
+
+/* Show dropdown when hovering over Events */
+.cs-dropdown:hover .cs-drop-ul {
+    display: block;
+}
+
+/* Dropdown links */
+.cs-dropdown .cs-drop-li {
+    margin: 0;
+    padding: 0;
+}
+
+.cs-dropdown .cs-drop-link {
+    display: block;
+    padding: 8px 15px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/* Optional hover effect on the year links */
+.cs-dropdown .cs-drop-link:hover {
+    background: #f1f1f1;
+}
