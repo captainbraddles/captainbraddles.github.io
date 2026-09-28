@@ -39,11 +39,28 @@
                             Leaderboard
                         </a>
                     </li>
-                    <li class="cs-li">
+                    <li class="cs-li cs-dropdown">
+                        <a href="/events" class="cs-li-link">
+                            Events
+                        </a>
+                        <ul class="cs-drop-ul">
+                            <li class="cs-drop-li">
+                                <a href="events.html" class="cs-drop-link">
+                                    2026
+                                </a>
+                            </li>
+                            <li class="cs-drop-li">
+                                <a href="events_2027.html" class="cs-drop-link">
+                                    2027
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--<li class="cs-li">
                         <a href="events.html" class="cs-li-link">
                             Events
                         </a>
-                    </li>
+                    </li>-->
                     <li class="cs-li">
                         <a href="participants.html" class="cs-li-link">
                             Participants
@@ -100,6 +117,7 @@
                 <p class="cs-text">
                     Below are the events for the 2027 season of SportsMaster. We've kept things nice and predictable this year, with the usual selection of AFL, cricket, soccer and other sports you've actually heard of. No lumberjacking, no e-Sports, no surprises — much like your love life, a reassuringly vanilla collection of the classics. Just don't expect a cuddle once it's all over.
                 </p>
+                <p class="cs-text">For a downloadable copy of the 2027 events list, <a href="https://docs.google.com/spreadsheets/d/11O6By1OHk6OU8BSwdlPa544CkN--Td5ebbENITTK7iI/edit?usp=sharing">click here</a>. You will still need to submit them via this site. Emailed copies of the spreadsheet WILL NOT be accepted!</p>
             </div>
             <div class="cards">
                 <ul class="cs-card-group" id="output">
@@ -113,7 +131,7 @@
 </body>
 
 <script src="/assets/js/standard.js"></script>
-<script src="assets/js/get_events.js"></script>
+<script src="assets/js/get_events_2027.js"></script>
 <script>
     function showPage() {
         document.getElementById("loader").style.display = "none";

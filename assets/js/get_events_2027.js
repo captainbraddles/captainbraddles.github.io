@@ -21,7 +21,7 @@ function showContent() {
 }
 
 async function getEvents() {
-    const payloadUrl = "https://script.google.com/macros/s/AKfycbzE09QC8KSBQv0fVQ2pV5lND_iMvEbdQ7GnSgltmvGsICU0bB9tvFt2ASJtOvxtCg_JgA/exec";
+    const payloadUrl = "https://script.google.com/macros/s/AKfycbxevmjN-9CIVTeAlmU2t4DXbhj9davvRl7sJtFhNhjtI1bGPNiNyRu5q091X5g7mcFT/exec";
 
     const response = await fetch(payloadUrl);
     const data = await response.json();
@@ -63,7 +63,7 @@ async function getEvents() {
             <div class="cs-info">
                 <h3 class="cs-h3">${item.Event}</h3>
                 <span class="cs-ages">${item.Category}</span>
-                <p class="cs-item-text">${item["Selection required"]}</p>
+                <p class="cs-item-text">${item["Selection Required"]}</p>
 
                 <a href="${item.Information}" class="cs-link">
                     More info
@@ -75,3 +75,4 @@ async function getEvents() {
         container.innerHTML += html;
     });
 }
+
