@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportsMaster Stats Builder</title>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/standard.css" />
+  <link rel="stylesheet" href="assets/css/navigation.css" />
+  <link rel="stylesheet" href="assets/css/core-styles.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
+  <style>
+    /* Keep the site header pinned to the top */
+    #cs-navigation { position: sticky; top: 0; z-index: 10000; }
+
+    #filters { display: grid; gap: 1rem; margin: 1rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+    #filters fieldset { min-width: 0; margin: 0; border: 1px solid #ccc;
+      border-radius: 8px; padding: .75rem 1rem; }
+    #filters label { display: block; margin: .35rem 0; }
+    #filters select, #filters button { width: 100%; font-size: 16px; } /* 16px stops iOS zooming in */
+    #filters select[multiple] { min-height: 9rem; }
+    .filter-buttons { grid-column: 1 / -1; display: flex; gap: .75rem; flex-wrap: wrap; }
+    .filter-buttons button { flex: 1 1 140px; }
+
+    details.filter-panel > summary { cursor: pointer; font-weight: 700;
+      font-size: 1.1rem; padding: .75rem 0; }
+    #results-wrap { scroll-margin-top: 90px; }
+    #cols-toggle { display: none; margin: .5rem 0; }
+
+    @media (max-width: 600px) {
+      #cols-toggle { display: block; }
+      #results th, #results td { padding: 6px 8px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <script src="/assets/js/nav.js"></script>
+
+  <section>
+    <div class="cs-container">
+      <div class="cs-content">
+        <span class="cs-topper">Ocho Level</span>
+        <h2 class="cs-title">Build Your Own Stats</h2>
+        <p class="cs-text">Pick your filters, choose how to group the results, and find out exactly how badly (or well) you did. Leave a filter empty to include everything.</p>
+
+        <details class="filter-panel" id="filter-panel" open>
+          <summary>Filters</summary>
+          <form id="filters">
+            <fieldset><legend>Seasons</legend><div id="season-filters"></div></fieldset>
+            <fieldset><legend>Categories</legend>
+              <select id="category-filter" multiple size="8"></select></fieldset>
+            <fieldset><legend>Participants</legend>
+              <select id="participant-filter" multiple size="8"></select></fieldset>
+            <fieldset><legend>Jokers</legend>
+              <label><input type="radio" name="joker" value="all" checked> All picks</label>
+              <label><input type="radio" name="joker" value="only"> Jokers only</label>
+              <label><input type="radio" name="joker" value="exclude"> Exclude jokers</label>
+            </fieldset>
+            <fieldset><legend>Group results by</legend>
+              <select id="group-by">
+                <option value="participant">Participant</option>
+                <option value="category">Category</option>
+                <option value="season">Season</option>
+              </select></fieldset>
+            <div class="filter-buttons">
+              <button type="submit" class="cs-button-solid">Show stats</button>
+              <button type="button" id="reset" class="cs-button-solid">Reset</button>
+            </div>
+          </form>
+        </details>
+
+        <p id="status" class="cs-text"></p>
+        <label id="cols-toggle"><input type="checkbox" id="show-all-cols"> Show all columns</label>
+        <div id="results-wrap">
+          <table id="results" class="cs-table hover" style="width:100%"></table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/stats_builder.js"></script>
+  <script src="/assets/js/standard.js"></script>
+</body>
+</html>

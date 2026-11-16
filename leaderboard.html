@@ -1,138 +1,155 @@
 <head>
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/standard.css">
-    <link rel="stylesheet" href="assets/css/core-styles.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/leaderboard.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/standard.css" />
+  <link rel="stylesheet" href="assets/css/core-styles.css" />
+  <link rel="stylesheet" href="assets/css/navigation.css" />
+  <link rel="stylesheet" href="assets/css/leaderboard.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <script
+    async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
+    crossorigin="anonymous"
+  ></script>
 </head>
+<body>
+  <!-- ============================================ -->
+  <!--                  Navigation bar              -->
+  <!-- ============================================ -->
+  <script src="/assets/js/nav.js"></script>
 
-<!-- ============================================ -->
-<!--                 Navigation                   -->
-<!-- ============================================ -->
+  <!-- ============================================ -->
+  <!--                    Table                     -->
+  <!-- ============================================ -->
 
-<header id="cs-navigation">
+  <section id="table-1669">
     <div class="cs-container">
-        <!--Nav Logo-->
-        <a href="index.html" class="cs-logo" aria-label="back to home">
-            <img src="images/Official Logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
-        </a>
-        <!--Navigation List-->
-        <nav class="cs-nav" role="navigation">
-            <!--Mobile Nav Toggle-->
-            <button class="cs-toggle" aria-label="mobile menu toggle">
-                <div class="cs-box" aria-hidden="true">
-                    <span class="cs-line cs-line1" aria-hidden="true"></span>
-                    <span class="cs-line cs-line2" aria-hidden="true"></span>
-                    <span class="cs-line cs-line3" aria-hidden="true"></span>
-                </div>
-            </button>
-            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
-            <div class="cs-ul-wrapper">
-                <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                    <li class="cs-li">
-                        <a href="index.html" class="cs-li-link cs-active">
-                            Home
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="leaderboard.html" class="cs-li-link">
-                            Leaderboard
-                        </a>
-                    </li>
-                    <li class="cs-li cs-dropdown">
-                        <a href="events_2027.html" class="cs-li-link">
-                            Events
-                        </a>
-                        <ul class="cs-drop-ul">
-                            <li class="cs-drop-li">
-                                <a href="events.html" class="cs-drop-link">
-                                    2026
-                                </a>
-                            </li>
-                            <li class="cs-drop-li">
-                                <a href="events_2027.html" class="cs-drop-link">
-                                    2027
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!--<li class="cs-li">
-                        <a href="events.html" class="cs-li-link">
-                            Events
-                        </a>
-                    </li>-->
-                    <li class="cs-li">
-                        <a href="participants.html" class="cs-li-link">
-                            Participants
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="selections.html" class="cs-li-link">
-                            Selections
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="index.html" class="cs-li-link">
-                            Winners List
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="rules.html" class="cs-li-link">
-                            Rules
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="history.html" class="cs-li-link">
-                            History
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="stats.html" class="cs-li-link">
-                            Stats
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
-        <!--<button id="dark-mode-toggle" aria-label="dark mode toggle">
-            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
-            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
-        </button>-->
+      <div class="cs-content">
+        <span class="cs-topper">Leaderboard</span>
+        <h2 class="cs-title">SportsMaster 2026 Leaderboard</h2>
+        <p class="cs-text"></p>
+      </div>
+      <table id="leaderboard" class="cs-table hover">
+        <thead>
+          <tr class="cs-color">
+            <th class="cs-th">SportsMaster</th>
+            <th class="cs-th">Points</th>
+            <th class="cs-th">Winners Selected</th>
+            <th class="cs-th">Jokers Won</th>
+          </tr>
+        </thead>
+      </table>
     </div>
-</header>
-                                
+  </section>
 
-<!-- ============================================ -->
-<!--                    Table                     -->
-<!-- ============================================ -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 
-<section id="table-1669">
-    <div class="cs-container">
-        <div class="cs-content">
-            <span class="cs-topper">Leaderboard</span>
-            <h2 class="cs-title">SportsMaster 2026 Leaderboard</h2>
-            <p class="cs-text">
-                
-            </p>
-        </div>
-        <table id="leaderboard" class="cs-table hover">
-            <thead>
-                <tr class="cs-color">
-                    <th class="cs-th">SportsMaster</th>
-                    <th class="cs-th">Points</th>
-                    <th class="cs-th">Winners Selected</th>
-                    <th class="cs-th">Jokers Won</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-</section>
+  <script>
+    const SUPABASE_URL = "https://vbalhcthklsmpyipmsmn.supabase.co"; // Project Settings → API
+    const SUPABASE_ANON_KEY = "sb_publishable_6z9gEihOno3T_RXJSYfn9Q_0PJlnbM8"; // the anon (public) key only
+    const SEASON_ID = 2026; // the id of the season in your seasons table
 
-<scripts>
+    const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function loadLeaderboard() {
+      const { data, error } = await db
+        .from("leaderboard")
+        .select("name, points, winners_selected, jokers_won")
+        .eq("season_id", SEASON_ID);
+
+      if (error) {
+        console.error("Leaderboard load failed:", error);
+        return;
+      }
+
+      const rows = data.map((r) => ({
+        SportsMaster: r.name,
+        Points: Number(r.points),
+        "Winners Selected": Number(r.winners_selected),
+        "Jokers Won": Number(r.jokers_won),
+      }));
+
+      // Same tiebreaks as the table order, so medals match what people see
+      rows.sort(
+        (a, b) =>
+          b.Points - a.Points ||
+          b["Winners Selected"] - a["Winners Selected"] ||
+          b["Jokers Won"] - a["Jokers Won"] ||
+          a.SportsMaster.localeCompare(b.SportsMaster),
+      );
+
+      rows.forEach((row, i) => {
+        row.award =
+          i === 0
+            ? "gold"
+            : i === 1
+              ? "silver"
+              : i === 2
+                ? "bronze"
+                : i === rows.length - 1
+                  ? "last"
+                  : null;
+      });
+
+      new DataTable("#leaderboard", {
+        data: rows,
+        paging: true,
+        pageLength: 50,
+        order: [
+          [1, "desc"],
+          [2, "desc"],
+          [3, "desc"],
+          [0, "asc"],
+        ],
+        layout: {
+          topStart: "search",
+          bottomStart: "pageLength",
+          bottomEnd: "paging",
+          bottom2Start: "info",
+        },
+        scrollX: true,
+        scrollY: false,
+        columns: [
+          { data: "SportsMaster" },
+          { data: "Points" },
+          { data: "Winners Selected" },
+          { data: "Jokers Won" },
+        ],
+        rowCallback: function (row, data) {
+          const icons = {
+            gold: '<i class="fa-solid fa-medal" style="color:#FFD700;"></i>',
+            silver: '<i class="fa-solid fa-medal" style="color:#C0C0C0;"></i>',
+            bronze: '<i class="fa-solid fa-medal" style="color:#CD7F32;"></i>',
+            last: '<i class="fa-solid fa-poo" style="color:#8B4513;"></i>',
+          };
+          const cell = $("td:eq(0)", row);
+          cell.text(data.SportsMaster);
+          if (data.award)
+            cell.text(" " + data.SportsMaster).prepend(icons[data.award]);
+        },
+        drawCallback: function () {
+          const rows = this.api().rows({ page: "current" }).nodes();
+          $(rows).removeClass("top-row-1 top-row-2 top-row-3");
+          if (rows.length > 0) $(rows[0]).addClass("top-row-1");
+          if (rows.length > 1) $(rows[1]).addClass("top-row-2");
+          if (rows.length > 2) $(rows[2]).addClass("top-row-3");
+        },
+      });
+    }
+
+    loadLeaderboard();
+  </script>
+
+  <!-- OLD SCRIPTS BLOCK GETTING DATA FROM GOOGLE SHEETS-->
+  <!--<scripts>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
@@ -232,7 +249,7 @@
 });
 
 
-	</script>
+	</script>-->
 
-
-<script src="/assets/js/standard.js"></script>
+  <script src="/assets/js/standard.js"></script>
+</body>
