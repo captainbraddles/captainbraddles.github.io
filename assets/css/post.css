@@ -1,0 +1,6 @@
+.post-card { display: flex; gap: 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid #ddd; }
+.post-card img { width: 180px; height: 120px; object-fit: cover; border-radius: 6px; }
+.post-card h2 { margin: .25rem 0 .5rem; font-size: 1.4rem; }
+.post-body { line-height: 1.7; }
+.post-body img { max-width: 100%; height: auto; }
+@media (max-width: 600px) { .post-card { flex-direction: column; } .post-card img { width: 100%; height: auto; } }
