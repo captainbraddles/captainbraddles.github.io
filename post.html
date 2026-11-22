@@ -1,85 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>News | SportsMaster</title>
-  <meta name="description" content="SportsMaster news" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News | SportsMaster</title>
+    <meta name="description" content="SportsMaster news" />
 
-  <link rel="stylesheet" href="assets/css/global.css" />
-  <link rel="stylesheet" href="assets/css/standard.css" />
-  <link rel="stylesheet" href="assets/css/core-styles.css" />
-  <link rel="stylesheet" href="assets/css/navigation.css" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/standard.css" />
+    <link rel="stylesheet" href="assets/css/core-styles.css" />
+    <link rel="stylesheet" href="assets/css/navigation.css" />
 
-  <style>
-    #post-section { padding: 2.5rem 1rem 5rem; }
-    .post-container { max-width: 800px; margin: 0 auto; }
+    <style>
+      #post-section {
+        padding: 6.5rem 1rem 5rem;
+      }
 
-    .post-back { display: inline-block; margin-bottom: 1.5rem; font-weight: 700; text-decoration: none; }
-    .post-back:hover { text-decoration: underline; }
+      @media only screen and (min-width: 64rem) {
+        #post-section {
+          padding-top: 8rem;
+        }
+      }
+      .post-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-    .post-header { margin-bottom: 1.75rem; }
-    .post-meta { font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; color: #777; margin-bottom: .75rem; }
-    .post-header h1 { margin: 0 0 1rem; font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.15; }
-    .post-summary { margin: 0; font-size: 1.2rem; line-height: 1.5; color: #555; }
+      .post-back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .post-back:hover {
+        text-decoration: underline;
+      }
 
-    .post-hero { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; margin-bottom: 2rem; background: #eee; }
+      .post-header {
+        margin-bottom: 1.75rem;
+      }
+      .post-meta {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #777;
+        margin-bottom: 0.75rem;
+      }
+      .post-header h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.9rem, 4vw, 2.75rem);
+        line-height: 1.15;
+      }
+      .post-summary {
+        margin: 0;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        color: #555;
+      }
 
-    /* Article text (rendered from Markdown) */
-    .post-body { font-size: 1.1rem; line-height: 1.75; color: #222; overflow-wrap: break-word; }
-    .post-body > :first-child { margin-top: 0; }
-    .post-body p { margin: 0 0 1.25rem; }
-    .post-body h2 { margin: 2.5rem 0 1rem; font-size: 1.6rem; line-height: 1.25; }
-    .post-body h3 { margin: 2rem 0 .75rem; font-size: 1.3rem; line-height: 1.3; }
-    .post-body a { text-decoration: underline; }
-    .post-body ul, .post-body ol { margin: 0 0 1.25rem; padding-left: 1.5rem; }
-    .post-body li { margin-bottom: .4rem; }
-    .post-body img { max-width: 100%; height: auto; border-radius: 8px; margin: 1rem 0; }
-    .post-body blockquote { margin: 1.5rem 0; padding: .25rem 0 .25rem 1.25rem; border-left: 4px solid #ccc; color: #555; font-style: italic; }
-    .post-body hr { border: 0; border-top: 1px solid #ddd; margin: 2.5rem 0; }
-    .post-body code { background: #f1f1f1; padding: .1rem .35rem; border-radius: 4px; font-size: .95em; }
-    .post-body pre { background: #f1f1f1; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0 0 1.25rem; }
-    .post-body pre code { background: none; padding: 0; }
-    .post-body table { border-collapse: collapse; width: 100%; margin: 0 0 1.25rem; display: block; overflow-x: auto; }
-    .post-body th, .post-body td { border: 1px solid #ddd; padding: .5rem .75rem; text-align: left; }
-    .post-body th { background: #f6f6f6; }
+      .post-hero {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        background: #eee;
+      }
 
-    /* Older / newer */
-    .post-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid #ddd; }
-    .post-nav a { flex: 1; max-width: 48%; text-decoration: none; padding: 1rem 1.25rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.1); background: #fff; color: inherit; transition: transform .2s, box-shadow .2s; }
-    .post-nav a:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
-    .post-nav .post-nav-label { display: block; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: #777; margin-bottom: .25rem; }
-    .post-nav .post-nav-title { font-weight: 700; line-height: 1.3; }
-    .post-nav .post-nav-next { margin-left: auto; text-align: right; }
+      /* Article text (rendered from Markdown) */
+      .post-body {
+        font-size: 1.1rem;
+        line-height: 1.75;
+        color: #222;
+        overflow-wrap: break-word;
+      }
+      .post-body > :first-child {
+        margin-top: 0;
+      }
+      .post-body p {
+        margin: 0 0 1.25rem;
+      }
+      .post-body h2 {
+        margin: 2.5rem 0 1rem;
+        font-size: 1.6rem;
+        line-height: 1.25;
+      }
+      .post-body h3 {
+        margin: 2rem 0 0.75rem;
+        font-size: 1.3rem;
+        line-height: 1.3;
+      }
+      .post-body a {
+        text-decoration: underline;
+      }
+      .post-body ul,
+      .post-body ol {
+        margin: 0 0 1.25rem;
+        padding-left: 1.5rem;
+      }
+      .post-body li {
+        margin-bottom: 0.4rem;
+      }
+      .post-body img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+      .post-body blockquote {
+        margin: 1.5rem 0;
+        padding: 0.25rem 0 0.25rem 1.25rem;
+        border-left: 4px solid #ccc;
+        color: #555;
+        font-style: italic;
+      }
+      .post-body hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 2.5rem 0;
+      }
+      .post-body code {
+        background: #f1f1f1;
+        padding: 0.1rem 0.35rem;
+        border-radius: 4px;
+        font-size: 0.95em;
+      }
+      .post-body pre {
+        background: #f1f1f1;
+        padding: 1rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 0 0 1.25rem;
+      }
+      .post-body pre code {
+        background: none;
+        padding: 0;
+      }
+      .post-body table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 0 1.25rem;
+        display: block;
+        overflow-x: auto;
+      }
+      .post-body th,
+      .post-body td {
+        border: 1px solid #ddd;
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+      }
+      .post-body th {
+        background: #f6f6f6;
+      }
 
-    @media (max-width: 600px) {
-      .post-nav { flex-direction: column; }
-      .post-nav a { max-width: 100%; }
-    }
-  </style>
-</head>
+      /* Older / newer */
+      .post-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 3.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid #ddd;
+      }
+      .post-nav a {
+        flex: 1;
+        max-width: 48%;
+        text-decoration: none;
+        padding: 1rem 1.25rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        color: inherit;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .post-nav a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      }
+      .post-nav .post-nav-label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: #777;
+        margin-bottom: 0.25rem;
+      }
+      .post-nav .post-nav-title {
+        font-weight: 700;
+        line-height: 1.3;
+      }
+      .post-nav .post-nav-next {
+        margin-left: auto;
+        text-align: right;
+      }
 
-<body class="content">
-  <script src="/assets/js/nav.js"></script>
+      @media (max-width: 600px) {
+        .post-nav {
+          flex-direction: column;
+        }
+        .post-nav a {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
 
-  <div id="loader" class="loader"></div>
-  <div id="content" class="hidden">
-    <section id="post-section">
-      <div class="post-container">
-        <a href="/blog.html" class="post-back">← All news</a>
-        <article id="post"></article>
-        <nav id="post-nav" class="post-nav" aria-label="More news" hidden></nav>
-      </div>
-    </section>
-  </div>
+  <body class="content">
+    <script src="/assets/js/nav.js"></script>
 
-  <script src="/assets/js/standard.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
-  <script src="assets/js/supabase-client.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
-  <script src="assets/js/post.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
-     crossorigin="anonymous"></script>
-</body>
+    <div id="loader" class="loader"></div>
+    <div id="content" class="hidden">
+      <section id="post-section">
+        <div class="post-container">
+          <a href="/blog.html" class="post-back">← All news</a>
+          <article id="post"></article>
+          <nav
+            id="post-nav"
+            class="post-nav"
+            aria-label="More news"
+            hidden
+          ></nav>
+        </div>
+      </section>
+    </div>
+
+    <script src="/assets/js/standard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+    <script src="assets/js/supabase-client.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+    <script src="assets/js/post.js"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
