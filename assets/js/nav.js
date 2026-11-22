@@ -6,7 +6,7 @@
 const NAV_LINKS = [
     { label: 'Home',         href: '/index.html' },
     { label: 'Leaderboard',  href: '/leaderboard.html' },
-    //{ label: 'News',         href: '/blog.html' },
+    { label: 'News',         href: '/blog.html' },
     { label: 'Events',       href: '/events.html' },
     { label: 'Participants', href: '/participants.html' },
     { label: 'Selections',   href: '/selections.html' },
