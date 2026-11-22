@@ -1,51 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SportsMaster</title>
+
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/standard.css">
     <link rel="stylesheet" href="assets/css/core-styles.css">
     <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="preload" href="/fonts/roboto-v30-latin-regular.woff2 " as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/roboto-v30-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <style>
+      #hero-with-news { position: relative; }
+
+      #home-news[hidden] { display: none; }
+
+      /* Default (small screens, or not enough room beside the hero): normal block below the hero */
+      #home-news {
+        box-sizing: border-box;
+        margin: 1.5rem 1rem;
+        padding: .85rem;
+        overflow: hidden;
+        color: #fff;
+        background: #15181d;
+        border-radius: 14px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, .35);
+      }
+
+      /* Added by home-news.js when the panel fits to the right of the hero overlay.
+         top / left / width are set by the script. */
+      #home-news.hn-floating {
+        position: absolute;
+        z-index: 5;
+        margin: 0;
+        background: rgba(21, 24, 29, .86);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+      }
+
+      #home-news .hn-header { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; margin-bottom: .65rem; }
+      #home-news .hn-header h2 { margin: 0; font-size: .9rem; line-height: 1.2; color: #fff; text-transform: uppercase; letter-spacing: .08em; }
+      #home-news .hn-all { font-size: .8rem; font-weight: 700; color: #fff; text-decoration: none; white-space: nowrap; }
+      #home-news .hn-all:hover { text-decoration: underline; }
+
+      #home-news .hn-list { display: flex; flex-direction: column; gap: .55rem; min-width: 0; }
+
+      #home-news .hn-card {
+        display: flex;
+        align-items: center;
+        gap: .65rem;
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        padding: .4rem;
+        overflow: hidden;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, .1);
+        border-radius: 10px;
+        transition: background .2s;
+      }
+      #home-news .hn-card:hover { background: rgba(255, 255, 255, .22); }
+
+      /* Image box: fixed size, clips the image, image can never push the card wider */
+      #home-news .hn-img {
+        position: relative;
+        display: block;
+        flex: none;
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #333;
+      }
+      #home-news .hn-img img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        margin: 0;
+        object-fit: cover;
+      }
+
+      #home-news .hn-text { min-width: 0; overflow-wrap: anywhere; }
+      #home-news .hn-meta { margin-bottom: .15rem; font-size: .65rem; text-transform: uppercase; letter-spacing: .05em; color: #fff; opacity: .75; }
+      #home-news .hn-title { margin: 0; font-size: .9rem; line-height: 1.25; font-weight: 700; color: #fff; }
+
+      /* Latest post: larger, image on top */
+      #home-news .hn-card.hn-latest { flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
+      #home-news .hn-latest .hn-img { width: 100%; height: auto; aspect-ratio: 2.4 / 1; border-radius: 0; }
+      #home-news .hn-latest .hn-text { padding: .65rem .8rem .75rem; }
+      #home-news .hn-latest .hn-title { font-size: 1.05rem; }
+      #home-news .hn-badge { display: inline-block; margin-bottom: .35rem; padding: .12rem .45rem; font-size: .6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #111; background: #fff; border-radius: 4px; }
+
+
+      /* ============================================================
+         MOBILE / TABLET (below 1024px): dark box under the menu,
+         no man, smaller background photo, news below.
+         Desktop (1024px and up) is not affected by anything here.
+         ============================================================ */
+      @media only screen and (max-width: 63.9375rem) {
+        :root {
+          --m-nav-h: 4.5rem;                          /* height of the fixed menu bar */
+          --m-photo-h: clamp(9rem, 38vw, 15rem);      /* height of the background photo strip */
+        }
+
+        #hero-with-news #hero-2335 {
+          display: block;
+          padding: var(--m-nav-h) 0 0;
+          overflow: hidden;
+        }
+        #hero-with-news #hero-2335 .cs-wrapper {
+          display: block;
+          width: 100%;
+          padding: 0;
+        }
+        #hero-with-news #hero-2335 .cs-container {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          width: 100%;
+          max-width: none;
+          margin: 0;
+        }
+
+        /* The dark box with the title, text and button */
+        #hero-with-news #hero-2335 .cs-content {
+          box-sizing: border-box;
+          width: 100%;
+          max-width: none;
+          margin: 0;
+          padding: 2.25rem 1.25rem 2.5rem;
+          align-items: flex-start;
+          text-align: left;
+        }
+        #hero-with-news #hero-2335 .cs-overlay {
+          width: 100%;
+          height: 100%;
+          left: 0;
+          right: auto;
+          border-radius: 0 0 1.25rem 1.25rem;
+        }
+        #hero-with-news #hero-2335 .cs-title,
+        #hero-with-news #hero-2335 .cs-text {
+          width: 100%;
+          max-width: none;
+        }
+        #hero-with-news #hero-2335 .cs-title { max-width: 17ch; }
+
+        /* No man on mobile */
+        #hero-with-news #hero-2335 .cs-picture { display: none; }
+
+        /* Background photo: a smaller strip below the dark box */
+        #hero-with-news #hero-2335 .cs-background {
+          position: relative;
+          top: auto;
+          left: auto;
+          bottom: auto;
+          z-index: 0;
+          width: 100%;
+          height: var(--m-photo-h);
+          margin-top: -1.25rem;          /* tucks up behind the rounded bottom of the dark box */
+        }
+        #hero-with-news #hero-2335 .cs-content { position: relative; z-index: 1; }
+      }
+    </style>
 </head>
 <body>
   <!-- ============================================ -->
   <!--                  Navigation bar              -->
   <!-- ============================================ -->
- <script src="/assets/js/nav.js"></script>
-                                
+  <script src="/assets/js/nav.js"></script>
 
-<!-- ============================================ -->
-<!--                    Hero                      -->
-<!-- ============================================ -->
 
-<section id="hero-2335">
-    <div class="cs-wrapper">
-        <div class="cs-container">
-            <div class="cs-content">
-                <h1 class="cs-title"><span class="cs-tag">Welcome to</span> SportsMaster 2026!</h1>
-                <p class="cs-text">
-                    A new season. A new website. The same shit blokes.
-                </p>
-                <a href="leaderboard.html" class="cs-button-solid">
-                    Leaderboard
-                </a>
-                <div class="cs-overlay">
-                    <img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/slashes.svg" alt="stripes graphic" width="1290" height="684">
+  <div id="hero-with-news">
+
+    <!-- ============================================ -->
+    <!--                    Hero                      -->
+    <!-- ============================================ -->
+
+    <section id="hero-2335">
+        <div class="cs-wrapper">
+            <div class="cs-container">
+                <div class="cs-content">
+                    <h1 class="cs-title"><span class="cs-tag">Welcome to</span> SportsMaster 2026!</h1>
+                    <p class="cs-text">
+                        A new season. A new website. The same shit blokes.
+                    </p>
+                    <a href="leaderboard.html" class="cs-button-solid">
+                        Leaderboard
+                    </a>
+                    <div class="cs-overlay">
+                        <img class="cs-graphic" aria-hidden="true" decoding="async" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/MISC/slashes.svg" alt="stripes graphic" width="1290" height="684">
+                    </div>
                 </div>
+                <!--To make your own background crops of people use https://www.remove.bg/-->
+                <picture class="cs-picture">
+                    <!--<source media="(max-width: 600px)" srcset="images/gary-main-image-transparent.png">
+                    <source media="(min-width: 601px)" srcset="images/gary-main-image-transparent.png">-->
+                    <img aria-hidden="true" decoding="async" src="images/gary-main.png" alt="construction worker" width="435.75" height="496.5">
+                </picture>
             </div>
-            <!--To make your own background crops of people use https://www.remove.bg/-->
-            <picture class="cs-picture">
-                <!--<source media="(max-width: 600px)" srcset="images/gary-main-image-transparent.png">
-                <source media="(min-width: 601px)" srcset="images/gary-main-image-transparent.png">-->
-                <img aria-hidden="true" decoding="async" src="images/gary-main.png" alt="construction worker" width="435.75" height="496.5">
+            <picture class="cs-background">
+                <source media="(max-width: 600px)" srcset="images/backToBack.jpeg">
+                <source media="(min-width: 601px)" srcset="images/backToBack.jpeg">
+                <img aria-hidden="true" decoding="async" src="images/backToBack.jpeg" alt="construction site" width="1290" height="684">
             </picture>
         </div>
-        <picture class="cs-background">
-            <source media="(max-width: 600px)" srcset="images/backToBack.jpeg">
-            <source media="(min-width: 601px)" srcset="images/backToBack.jpeg">
-            <img aria-hidden="true" decoding="async" src="backToBack.jpeg" alt="construction site" width="1290" height="684">
-        </picture>
-    </div>
-</section>
+    </section>
 
-<script src="/assets/js/standard.js"></script>
+    <!-- Latest news panel (filled in and positioned by assets/js/home-news.js) -->
+    <aside id="home-news" hidden aria-label="Latest news">
+        <div class="hn-header">
+            <h2>Latest News</h2>
+            <a href="/blog.html" class="hn-all">View all →</a>
+        </div>
+        <div class="hn-list" id="home-news-grid"></div>
+    </aside>
+
+  </div>
+
+
+  <script src="/assets/js/standard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/home-news.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2618819913428237"
+     crossorigin="anonymous"></script>
 </body>
-                            
+</html>
