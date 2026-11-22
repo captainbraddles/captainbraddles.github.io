@@ -110,14 +110,24 @@
           --m-photo-h: clamp(9rem, 38vw, 15rem);      /* height of the background photo strip */
         }
 
+        /* Nothing in the hero is allowed to push the page wider than the screen */
+        #hero-with-news {
+          max-width: 100%;
+          overflow-x: clip;
+        }
+
         #hero-with-news #hero-2335 {
           display: block;
+          box-sizing: border-box;
+          width: 100%;
+          max-width: 100%;
           padding: var(--m-nav-h) 0 0;
           overflow: hidden;
         }
         #hero-with-news #hero-2335 .cs-wrapper {
           display: block;
           width: 100%;
+          max-width: 100%;
           padding: 0;
         }
         #hero-with-news #hero-2335 .cs-container {
@@ -126,33 +136,54 @@
           align-items: stretch;
           gap: 0;
           width: 100%;
-          max-width: none;
+          max-width: 100%;
           margin: 0;
         }
 
-        /* The dark box with the title, text and button */
+        /* The dark box with the title, text and button: always exactly the screen width */
         #hero-with-news #hero-2335 .cs-content {
+          position: relative;
+          z-index: 1;
           box-sizing: border-box;
           width: 100%;
-          max-width: none;
+          max-width: 100%;
+          min-width: 0;
           margin: 0;
-          padding: 2.25rem 1.25rem 2.5rem;
+          padding: 2rem clamp(1rem, 5vw, 1.5rem) 2.25rem;
+          overflow: hidden;                         /* clips the overlay's stripes graphic */
           align-items: flex-start;
           text-align: left;
-        }
-        #hero-with-news #hero-2335 .cs-overlay {
-          width: 100%;
-          height: 100%;
-          left: 0;
-          right: auto;
           border-radius: 0 0 1.25rem 1.25rem;
         }
-        #hero-with-news #hero-2335 .cs-title,
+
+        /* Overlay is pinned to the four edges of the dark box, so it can never be wider than it */
+        #hero-with-news #hero-2335 .cs-overlay {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          border-radius: inherit;
+        }
+
+        /* Text scales with the screen width */
+        #hero-with-news #hero-2335 .cs-title {
+          width: 100%;
+          max-width: 100%;
+          font-size: clamp(1.6rem, 8vw, 2.5rem);
+          overflow-wrap: anywhere;
+        }
+        #hero-with-news #hero-2335 .cs-tag {
+          font-size: clamp(1.1rem, 5vw, 1.6rem);
+        }
         #hero-with-news #hero-2335 .cs-text {
           width: 100%;
-          max-width: none;
+          max-width: 100%;
+          font-size: clamp(.95rem, 3.8vw, 1.1rem);
         }
-        #hero-with-news #hero-2335 .cs-title { max-width: 17ch; }
 
         /* No man on mobile */
         #hero-with-news #hero-2335 .cs-picture { display: none; }
@@ -168,7 +199,6 @@
           height: var(--m-photo-h);
           margin-top: -1.25rem;          /* tucks up behind the rounded bottom of the dark box */
         }
-        #hero-with-news #hero-2335 .cs-content { position: relative; z-index: 1; }
       }
     </style>
 </head>
